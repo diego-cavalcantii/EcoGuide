@@ -22,7 +22,7 @@ export default function Header() {
         <h1 className='logo'>EcoGuide</h1>
         <ul>
           {ways.map(({ text, link }, index) => (
-            <li key={index} className='ways'>{text}</li>
+            <li key={index} className='ways'><Link href={link}>{text}</Link></li>
           ))}
         </ul>
       </nav>

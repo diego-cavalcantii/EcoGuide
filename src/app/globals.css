@@ -4,6 +4,25 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #d9d9d9;
+}
+
 img {
   max-width: 100%;
+}
+
+p {
+  font-size: 20px;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: dodgerblue;
+
 }
