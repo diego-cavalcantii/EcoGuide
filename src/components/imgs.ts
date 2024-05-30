@@ -9,6 +9,11 @@ import hospitalar from '../../public/recycle-hospitalar.svg';
 import recycling from '../../public/recycla.jpg';
 import madeira from '../../public/recycle-solid.svg';
 import paperRecycling from '../../public/paper-recycling.jpg'
+import trash from '../../public/trashs.jpg'
+import tampinhas from '../../public/tampinhas.jpg'
+import bars from '../../public/bars.svg'
+import xSolid from '../../public/x-solid.svg'
+import bgOcean from '../../public/bg-ocean.jpg'
 
 
 export const Imagens = {
@@ -22,5 +27,10 @@ export const Imagens = {
   hospitalar,
   recycling,
   madeira,
-  paperRecycling
+  paperRecycling,
+  trash,
+  tampinhas,
+  bars,
+  xSolid,
+  bgOcean
 }

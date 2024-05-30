@@ -1,24 +1,31 @@
 .bg-blue {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../public/bg-blue.jpg");
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url("../../public/bg-ocean.jpg");
+  /* filter: blur(1px); */
+  /* position: fixed; */
+  /* background-image: url("../../public/bg-ocean.jpg"); */
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
 }
 
 
 .title-main {
+  height: 90vh;
   margin: auto 0;
-  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   h1 {
-    font-size: 4rem;
+    font-family: "Erica One", sans-serif;
     color: white;
     text-align: center;
     margin-bottom: 70px;
     text-transform: capitalize;
-    font-weight: 800;
   }
 }
 
@@ -27,7 +34,6 @@ main {
   flex-direction: column;
   gap: 100px;
   margin: 0 auto;
-  margin-top: 100px;
   width: 85%;
 }
 
@@ -57,10 +63,15 @@ main {
 }
 
 @media(min-width:375px) {
+  main {
+    width: 90%;
+    margin-top: 50px;
+  }
+
   .title-main {
     h1 {
       font-size: 2rem;
-      max-width: none;
+      max-width: 375px;
     }
   }
 
@@ -79,6 +90,11 @@ main {
 }
 
 @media(min-width:768px) {
+  main {
+    width: 85%;
+    margin-top: 100px;
+  }
+
   .title-main {
     h1 {
       font-size: 4rem;
@@ -101,10 +117,16 @@ main {
 }
 
 @media(min-width:1200px) {
+  main {
+    width: 85%;
+    margin-top: 100px;
+  }
+
   .title-main {
     h1 {
       font-size: 4rem;
       max-width: 700px;
+      font-weight: 400;
     }
   }
 

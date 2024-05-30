@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Erica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +9,6 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
   background-color: #d9d9d9;
 }
 
@@ -14,28 +17,37 @@ img {
 }
 
 p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   font-size: 20px;
 }
 
+a {
+  font-family: "Klee One", cursive;
+
+}
+
+h2 {
+  font-family: "Klee One", cursive;
+}
 
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: dodgerblue;
 
-} */
+}
 
 
-@media (min-width:375px) {
+/* @media (min-width:375px) {
   ::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
     display: none;
-
   }
-}
+} */

@@ -24,11 +24,16 @@ export default function Discard() {
           </div>
           <div className='second-paragraphs'>
             <p>{text[2]}</p>
-            <p>{text[3]}</p>
           </div>
-          <Image className='discard-image' src={image} alt='recycling' width={500} height={333} />
+          <p className='third-paragraphs'>{text[3]}</p>
+          <div className='discard-image' >
+            {image.map((image, index) => (
+              <Image key={index} src={image} alt='recycling' width={400} height={300} />
+            ))}
+          </div>
         </article>
-      ))}
-    </section>
+      ))
+      }
+    </section >
   )
 }

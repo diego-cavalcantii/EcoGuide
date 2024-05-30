@@ -34,7 +34,7 @@ export default function HowDiscard() {
       <article className='how-discord'>
         {discard.map(({ title, image, id }) => (
           <button onClick={() => handleClick(id)} className='box-recycling' key={id}>
-            <Image src={image} alt={title} width={80} height={80} />
+            <Image src={image} alt={title} width={60} height={60} />
             <p>{title}</p>
           </button>
         ))}

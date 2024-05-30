@@ -11,7 +11,11 @@ export const whyDiscard = [
       'Por outro lado, quando descartamos o lixo de forma adequada, estamos contribuindo para a preservação dos recursos naturais. Muitos materiais podem ser reciclados ou reutilizados, reduzindo a necessidade de extrair novas matérias-primas da natureza. ',
 
       'Em resumo, descartar o lixo de forma correta não é apenas uma questão de conveniência, mas sim uma necessidade urgente para garantir um futuro sustentável para as gerações futuras.'],
-    image: Imagens.recycling
+    image: [
+      Imagens.recycling,
+      Imagens.trash,
+      Imagens.tampinhas
+    ]
   }
 ]
 

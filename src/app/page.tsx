@@ -10,23 +10,23 @@ import '../styles/Home.css'
 export default function Home() {
   return (
     <>
-      <div className="bg-blue">
+      <div className="bg-blue" >
         <Header />
         <div className="title-main">
-          <h1>Salve o Planeta reciclando seu lixo</h1>
+          <h1>Salve os oceanos reciclando seu lixo</h1>
         </div>
+        <main>
+          <WhyDiscard />
+          <HowDiscard />
+          <CollectionPoints />
+        </main>
+        <section className="container-add-collection">
+          <h2>Existe algum ponto de coleta que não esteja aqui ? <br />
+            Adicione no botão abaixo</h2>
+          <button className="add-collection">Adicionar ponto de coleta</button>
+        </section>
+        <Footer />
       </div>
-      <main>
-        <WhyDiscard />
-        <HowDiscard />
-        <CollectionPoints />
-      </main>
-      <section className="container-add-collection">
-        <h2>Existe algum ponto de coleta que não esteja aqui ? <br />
-          Adicione no botão abaixo</h2>
-        <button className="add-collection">Adicionar ponto de coleta</button>
-      </section>
-      <Footer />
     </>
 
   );

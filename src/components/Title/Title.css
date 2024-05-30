@@ -14,3 +14,35 @@
   margin: 0 10px;
   background-color: cornflowerblue;
 }
+
+@media(min-width: 375px) {
+  .title {
+    font-size: 1.5rem;
+    text-align: center;
+
+  }
+
+  .title::before {
+    display: none;
+  }
+}
+
+@media(min-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .title::before {
+    display: inline-block;
+  }
+}
+
+@media(min-width: 1200px) {
+  .title {
+    font-size: 2.3rem;
+  }
+
+  .title::before {
+    display: inline-block;
+  }
+}
