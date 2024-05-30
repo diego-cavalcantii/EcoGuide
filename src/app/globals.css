@@ -18,11 +18,24 @@ p {
 }
 
 
-::-webkit-scrollbar {
+
+/* ::-webkit-scrollbar {
   width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: dodgerblue;
 
+} */
+
+
+@media (min-width:375px) {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    display: none;
+
+  }
 }
