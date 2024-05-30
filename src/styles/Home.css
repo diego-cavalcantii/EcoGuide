@@ -1,0 +1,29 @@
+.bg-blue {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../public/bg-blue.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-main {
+  margin: auto 0;
+  align-self: center;
+
+  h1 {
+    font-size: 3rem;
+    color: white;
+    max-width: 600px;
+    text-align: center;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  gap: 20px;
+}
