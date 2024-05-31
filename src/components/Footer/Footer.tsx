@@ -3,7 +3,11 @@ import React, { useEffect } from 'react'
 import { membersList } from '@/mocks/memberList'
 import './Footer.css'
 
-export default function Footer() {
+interface FooterProps {
+  variant?: string
+}
+
+export default function Footer({ variant }: FooterProps) {
   const [members, setMembers] = React.useState(membersList)
 
   useEffect(() => {
@@ -12,7 +16,7 @@ export default function Footer() {
 
 
   return (
-    <footer>
+    <footer className={variant}>
       {members.map(({ name, rm, turma }, index) => (
         <p key={index}>{`| ${name} - ${rm} - ${turma} |`}</p>
       ))}

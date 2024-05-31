@@ -12,7 +12,7 @@ export default function HowDiscard() {
 
   useEffect(() => {
     setDiscard(howDiscard);
-  }, []);
+  }, [discard]);
 
   function handleClick(id: number) {
     if (selectedId === id) {

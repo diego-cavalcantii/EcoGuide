@@ -1,0 +1,23 @@
+.add-collection {
+  border-radius: 10px;
+  border: none;
+  height: 60px;
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+@media(min-width:375px) {
+  .add-collection {
+    width: 400px;
+  }
+}
+
+@media(min-width:1200px) {
+  .add-collection {
+    width: 400px;
+  }
+}

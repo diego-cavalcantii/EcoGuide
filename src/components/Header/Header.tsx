@@ -6,13 +6,14 @@ import './Header.css';
 import { Imagens } from '../imgs';
 import Image from 'next/image';
 
-interface waysListProps {
-  text: string;
-  link: string;
+
+interface HeaderProps {
+  variant?: string;
+
 }
 
-export default function Header() {
-  const [ways, setWays] = React.useState<waysListProps[]>([]);
+export default function Header({ variant }: HeaderProps) {
+  const [ways, setWays] = React.useState(waysList);
   const [isOpen, setIsOpen] = React.useState(false);
 
   useEffect(() => {
@@ -24,9 +25,11 @@ export default function Header() {
   };
 
   return (
-    <header>
+    <header className={variant}>
       <nav>
-        <h1 className='logo'>EcoGuide</h1>
+        <Link href={'/'}>
+          <h1 className='logo'>EcoGuide</h1>
+        </Link>
         <button className='bar' onClick={toogleMenu}>
           <Image src={Imagens.bars} alt='menu' width={20} height={20} />
         </button>

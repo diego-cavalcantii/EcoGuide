@@ -4,7 +4,7 @@ export const whyDiscard = [
   {
     title: 'Porque Descartar de forma correta ?',
     text: [
-      'Descartar o lixo de maneira correta é essencial para preservar o meio ambiente e proteger a saúde humana. Quando o lixo é jogado em locais inadequados, como ruas e rios, ele polui os ecossistemas naturais, ameaçando a biodiversidade e prejudicando a qualidade da água e do ar. Primeiramente, descartar o lixo de forma correta ajuda a proteger o meio ambiente.',
+      'Descartar o lixo de maneira correta é essencial para preservar o meio ambiente e proteger a saúde humana. Quando o lixo é jogado em locais inadequados, como ruas e rios, ele polui os ecossistemas naturais, ameaçando a biodiversidade e prejudicando a qualidade da água e do ar.',
 
       'Além disso, o descarte incorreto de resíduos pode representar um risco direto para a saúde das pessoas. Lixões e queimas de lixo liberam substâncias tóxicas no ar e no solo, aumentando o risco de doenças respiratórias e outros problemas de saúde.',
 

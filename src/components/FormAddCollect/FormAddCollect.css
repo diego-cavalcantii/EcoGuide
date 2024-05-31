@@ -1,0 +1,15 @@
+.form-collection {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
