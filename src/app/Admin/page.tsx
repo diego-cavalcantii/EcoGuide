@@ -11,7 +11,7 @@ const Admin = () => {
 
   const fetchPendingPoints = async () => {
     try {
-      const response = await fetch('http://localhost:9090/astro/pending');
+      const response = await fetch('http://localhost:9090/ponto_coleta/pending');
       if (!response.ok) {
         throw new Error('Failed to fetch pending points.');
       }
@@ -24,7 +24,7 @@ const Admin = () => {
 
   const handleAccept = async (name) => {
     try {
-      const response = await fetch(`http://localhost:9090/astro/${name}/accept`, {
+      const response = await fetch(`http://localhost:9090/ponto_coleta/${name}/accept`, {
         method: 'PUT',
       });
       if (!response.ok) {
@@ -39,7 +39,7 @@ const Admin = () => {
 
   const handleReject = async (name) => {
     try {
-      const response = await fetch(`http://localhost:9090/astro/${name}/reject`, {
+      const response = await fetch(`http://localhost:9090/ponto_coleta/${name}/reject`, {
         method: 'PUT',
       });
       if (!response.ok) {

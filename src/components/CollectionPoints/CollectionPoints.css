@@ -1,0 +1,26 @@
+.collection-point {
+  background-color: antiquewhite;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+#pontos-de-coleta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.collection-points-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}

@@ -7,6 +7,9 @@ interface TextFieldProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   minLength?: number;
+  maxLength?: number;
+  value?: string;
+  placeholder?: string;
 }
 
 export const TextField = ({
@@ -15,12 +18,15 @@ export const TextField = ({
   type = "text",
   onChange,
   required,
-  minLength
+  minLength,
+  maxLength,
+  value,
+  placeholder
 }: TextFieldProps) => {
   return (
     <div>
       <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} onChange={onChange} required={required} minLength={minLength} />
+      <input type={type} id={id} onChange={onChange} required={required} minLength={minLength} maxLength={maxLength} value={value} placeholder={placeholder} />
     </div>
   )
 }
