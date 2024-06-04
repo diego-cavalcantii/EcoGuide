@@ -19,7 +19,6 @@ export default function AddCollects() {
       <Header />
       <main>
         <FormAddCollect />
-
       </main>
       <Footer />
     </>

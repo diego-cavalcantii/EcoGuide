@@ -1,21 +1,16 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import { TextField } from '../TextField/TextField';
 
 export default function UseRegister() {
+  const [cpf, setCpf] = useState('');
+  const [name, setName] = useState('');
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
-  function handlePage() {
-    window.location.href = '/pages/AddCollects'; // Redirect to AddCollects page
 
-  }
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      handlePage();
-    }
-  }, [handlePage]);
 
   const handleRegister = async () => {
     try {
@@ -24,7 +19,7 @@ export default function UseRegister() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({ cpf, name, username, email, password })
       });
 
       if (response.ok) {
@@ -40,15 +35,38 @@ export default function UseRegister() {
   return (
     <div>
       <h2>Register</h2>
-      <input
+      <TextField
+        id='cpf'
+        label='CPF'
+        type="number"
+        value={cpf}
+        onChange={(e) => setCpf(e.target.value)}
+      />
+      <TextField
+        id='name'
+        label='Nome'
         type="text"
-        placeholder="Username"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <TextField
+        id='username'
+        label='Username'
+        type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <input
+      <TextField
+        id='email'
+        label='Email'
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <TextField
+        id='password'
+        label='Password'
         type="password"
-        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

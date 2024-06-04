@@ -1,12 +1,12 @@
 'use client'
 import React, { useEffect } from 'react'
-import './WhyDiscard.css';
+import './SectionWhyDiscard.css';
 import { whyDiscard } from '@/mocks/infos';
 import Image from 'next/image';
 import Title from '../Title/Title'
 
 
-export default function Discard() {
+export default function SectionWhyDiscard() {
   const [discard, setDiscard] = React.useState(whyDiscard)
 
   useEffect(() => {

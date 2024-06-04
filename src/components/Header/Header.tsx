@@ -15,15 +15,17 @@ interface HeaderProps {
 export default function Header({ variant }: HeaderProps) {
   const [ways, setWays] = React.useState(waysList);
   const [isOpen, setIsOpen] = React.useState(false);
-
-  const token = sessionStorage.getItem('token');
-  const name = sessionStorage.getItem('username');
-
+  const [token, setToken] = React.useState('');
+  const [name, setName] = React.useState('');
 
   useEffect(() => {
-    console.log(name);
-
-  }, [token, name]);
+    const chave = sessionStorage.getItem('token');
+    const nome = sessionStorage.getItem('username');
+    if (chave && nome != null) {
+      setToken(chave);
+      setName(nome);
+    }
+  }, []);
 
 
   useEffect(() => {
@@ -52,7 +54,7 @@ export default function Header({ variant }: HeaderProps) {
                 }}>Sair</button>
               </div>
             ) : (
-              <Link href={'/pages/Login'}>
+              <Link href={'./Login'}>
                 <button className='login'>Login</button>
               </Link>
             )
@@ -63,8 +65,8 @@ export default function Header({ variant }: HeaderProps) {
           <div className={isOpen ? 'menu-bar open' : 'menu-bar'}>
             <ul>
               {ways.map(({ text, link }, index) => (
-                <Link href={link}>
-                  <li key={index} className='ways'>{text}</li>
+                <Link href={link} key={index} onClick={() => setIsOpen(!isOpen)}>
+                  <li className='ways'>{text}</li>
                 </Link>
               ))}
               <button className='close' onClick={toogleMenu}>

@@ -28,7 +28,7 @@ export default function CollectionPoints() {
   }, []);
 
   return (
-    <section id='pontos-de-coleta'>
+    <section>
       <Title>Pontos de Coleta</Title>
       {loading ? (
         <p>Carregando...</p> // Mensagem de carregamento enquanto os pontos de coleta estão sendo buscados

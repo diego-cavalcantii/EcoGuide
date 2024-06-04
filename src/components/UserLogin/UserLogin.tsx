@@ -1,10 +1,15 @@
 'use client'
 import React, { useState } from 'react';
+import { TextField } from '../TextField/TextField';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+
+  const handlePage = () => {
+    window.location.href = '/pages/Register'; // Redirect to AddCollects page
+  };
 
   const handleLogin = async () => {
     try {
@@ -37,19 +42,24 @@ const Login = () => {
   return (
     <div>
       <h2>Login</h2>
-      <input
+      <TextField
+        id='username'
+        label='Username'
         type="text"
-        placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        required
       />
-      <input
+      <TextField
+        id='password'
+        label='Password'
         type="password"
-        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        required
       />
       <button onClick={handleLogin}>Login</button>
+      <button onClick={handlePage}>Cadastre-se</button>
       {message && <p>{message}</p>}
     </div>
   );

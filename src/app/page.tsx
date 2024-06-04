@@ -1,11 +1,9 @@
 'use client'
 import Header from '@/components/Header/Header';
-import WhyDiscard from '@/components/WhyDiscard/WhyDiscard';
-import HowDiscard from '@/components/HowDiscard/HowDiscard';
-import CollectionPoints from '@/components/CollectionPoints/CollectionPoints';
 import Footer from '@/components/Footer/Footer';
-import RouteAddCollects from '@/components/RouteAddCollects/RouteAddCollects';
 import '../styles/Home.css'
+import SectionWhyDiscard from '@/components/SectionWhyDiscard/SectionWhyDiscard';
+import SectionHowDiscard from '@/components/SectionHowDiscard/SectionHowDiscard';
 
 
 
@@ -23,15 +21,10 @@ export default function Home() {
         </div>
       </div>
       <main className='main-home'>
-        <WhyDiscard />
-        <HowDiscard />
-        <CollectionPoints />
+        <SectionWhyDiscard />
+        <SectionHowDiscard />
       </main>
-      <section className="container-add-collection">
-        <h2>Existe algum ponto de coleta que não esteja aqui ? <br />
-          Adicione no botão abaixo</h2>
-        <RouteAddCollects>Adicionar ponto de coleta</RouteAddCollects>
-      </section>
+
       <Footer />
     </>
 

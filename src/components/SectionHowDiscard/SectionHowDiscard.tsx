@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-import './HowDiscard.css';
+import './SectionHowDiscard.css';
 import { howDiscard } from '@/mocks/infos';
 import Title from '@/components/Title/Title';
 import Image from 'next/image';
 
-export default function HowDiscard() {
+export default function SectionHowDiscard() {
   const [discard, setDiscard] = useState(howDiscard);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const infoRef = useRef<HTMLDivElement>(null); // Referência à seção de informações
