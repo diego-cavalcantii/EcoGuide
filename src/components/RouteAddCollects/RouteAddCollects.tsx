@@ -1,8 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import './RouteAddCollects.css'
-import Link from 'next/link'
+
 
 interface ButtonProps {
   children?: string
@@ -10,10 +9,14 @@ interface ButtonProps {
 
 export default function Button({ children }: ButtonProps) {
 
+  const token = sessionStorage.getItem('token');
+
+  const handleAddCollect = () => {
+    if (!token) { window.location.href = 'pages/Login'; }
+    else { window.location.href = 'pages/AddCollects'; }
+  };
 
   return (
-    <Link href={'/AddCollects'}>
-      <button className='add-collection'>{children}</button>
-    </Link>
+    <button onClick={handleAddCollect} className='add-collection'>{children}</button>
   )
 }
