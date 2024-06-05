@@ -1,23 +1,97 @@
 .container-login {
     display: grid;
-    grid-template-columns: 2fr auto;
+    grid-template-columns: 2fr 1fr;
     flex-grow: 1;
 }
-.container-login > img {
-    object-fit: cover;
-    height: 100vh;
+
+.deep-ocean {
+    background-image: url('../../../public/deep-ocean.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        color: white;
+        font-size: 4rem;
+        font-weight: 200;
+        max-width: 600px;
+        text-align: center;
+        font-family: "Klee One", cursive;
+        line-height: 80px;
+
+    }
 }
 
-
+.container-form-login {
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
 
 #form-login {
+    width: 80%;
+    max-width: 80%;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    padding: 0 30px;
+    justify-content: center;
+    gap: 50px;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #333;
+    }
 }
 
 .vh {
     display: flex;
     flex-direction: column;
     height: 100vh;
+}
+
+.box-login {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+
+}
+
+.input-login {
+
+    label {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px solid #333;
+        font-size: .8rem;
+        padding: 10px;
+    }
+}
+
+.box-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+        background-color: white;
+        color: #333;
+        padding: 15px 0;
+        border: 1px solid #333;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    span {
+        border: 1px solid #000;
+    }
 }

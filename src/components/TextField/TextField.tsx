@@ -1,4 +1,5 @@
 import React from 'react'
+import './TextField.css'
 
 interface TextFieldProps {
   id: string;
@@ -10,6 +11,7 @@ interface TextFieldProps {
   maxLength?: number;
   value?: string;
   placeholder?: string;
+  variant?: string;
 }
 
 export const TextField = ({
@@ -21,10 +23,11 @@ export const TextField = ({
   minLength,
   maxLength,
   value,
-  placeholder
+  placeholder,
+  variant
 }: TextFieldProps) => {
   return (
-    <div>
+    <div className={`text-field ${variant}`}>
       <label htmlFor={id}>{label}</label>
       <input type={type} id={id} onChange={onChange} required={required} minLength={minLength} maxLength={maxLength} value={value} placeholder={placeholder} />
     </div>

@@ -1,18 +1,18 @@
 'use client'
-import Layout from '@/components/Layout/Layout'
 import React from 'react'
 import { TextField } from '@/components/TextField/TextField'
 import { useState } from 'react';
-import Image from 'next/image';
-import { Imagens } from '@/components/imgs';
 import './Login.css'
+import Header from '@/components/Header/Header';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
+
   const handlePage = () => {
+
     window.location.href = './Register'; // Redirect to AddCollects page
   };
 
@@ -45,32 +45,42 @@ export default function Login() {
   };
 
   return (
-    <Layout variant='vh'>
+    <div className='vh'>
+      <Header variant='bg-transparent text-white' />
       <main className='container-login'>
-        <Image src={Imagens.deepOcean} alt='fundo do mar'  />
-    <div id='form-login'>
-      <h2>Login</h2>
-      <TextField
-        id='username'
-        label='Username'
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <TextField
-        id='password'
-        label='Password'
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button onClick={handleLogin}>Login</button>
-      <button onClick={handlePage}>Cadastre-se</button>
-      {message && <p>{message}</p>}
-    </div>
+        <section className='deep-ocean'>
+          <h1>Seu lixo com destino <span style={{ fontWeight: 900, color: 'lightgreen' }}>certo!</span></h1>
+        </section>
+        <section className='container-form-login'>
+          <article id='form-login'>
+            <h2>Login</h2>
+            <div className='box-login'>
+              <TextField variant='input-login'
+                id='username'
+                label='Username'
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <TextField variant='input-login'
+                id='password'
+                label='Password'
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className='box-buttons'>
+              <button onClick={handleLogin}>Login</button>
+              <span />
+              <button onClick={handlePage}>Cadastre-se</button>
+            </div>
+            {message && <p>{message}</p>}
+          </article>
+        </section>
       </main>
-    </Layout>
+    </div>
   );
 }
