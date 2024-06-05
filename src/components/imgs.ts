@@ -14,6 +14,7 @@ import tampinhas from '../../public/tampinhas.jpg'
 import bars from '../../public/bars.svg'
 import xSolid from '../../public/x-solid.svg'
 import bgOcean from '../../public/bg-ocean.jpg'
+import deepOcean from '../../public/deep-ocean.jpg'
 
 
 export const Imagens = {
@@ -32,5 +33,6 @@ export const Imagens = {
   tampinhas,
   bars,
   xSolid,
-  bgOcean
+  bgOcean,
+  deepOcean
 }

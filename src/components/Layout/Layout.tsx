@@ -5,12 +5,13 @@ import Footer from '../Footer/Footer'
 
 interface LayoutProps {
   children?: React.ReactNode
+  variant?:string;
 
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children,variant }: LayoutProps) {
   return (
-    <div>
+    <div className={variant}>
       <Header />
       {children}
       <Footer />

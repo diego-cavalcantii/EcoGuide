@@ -1,0 +1,61 @@
+.main-collect-points{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding-top: 50px;
+  }
+  
+  .container-collect-points {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  
+  .collection-points-list {
+    grid-area: 1/2/-1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: end;
+  }
+  
+  .collection-point {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+    /* align-items: center; */
+    justify-content: start;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+  }
+  
+  .collection-point > img {
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+  }
+  
+  #pontos-de-coleta {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .adress-collect {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 0 12px;
+  }
+  
+  .adress-collect  li {
+    display: inline;
+  }
+  
+  .name-collect {
+    padding: 0 12px;
+  }
+  

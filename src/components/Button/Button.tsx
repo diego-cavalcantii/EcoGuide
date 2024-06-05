@@ -23,10 +23,11 @@ export default function RouteAddCollects({ children }: ButtonProps) {
 
   const handleAddCollect = () => {
     if (!token) { window.location.href = './Login'; }
-    else { window.location.href = 'pages/AddCollects'; }
+    else { window.location.href = './AddCollects'; }
   };
 
   return (
     <button onClick={handleAddCollect} className='add-collection'>{children}</button>
   )
 }
+

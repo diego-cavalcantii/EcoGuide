@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-blue" >
-        <Header variant='text-white' />
+        <Header variant='text-white bg-transparent' />
         <div className="title-main">
           <h1>Salve os oceanos reciclando seu lixo</h1>
         </div>

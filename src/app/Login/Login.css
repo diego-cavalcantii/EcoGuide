@@ -1,0 +1,23 @@
+.container-login {
+    display: grid;
+    grid-template-columns: 2fr auto;
+    flex-grow: 1;
+}
+.container-login > img {
+    object-fit: cover;
+    height: 100vh;
+}
+
+
+
+#form-login {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+}
+
+.vh {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}

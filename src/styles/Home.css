@@ -30,23 +30,7 @@
   }
 }
 
-
-
-.bg-ocean {
-  height: 100%;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../public/bg-ocean.jpg"); */
-  background-image: url("../../public/bg-ocean.jpg");
-
-  /* right: 0;
-  left: 0;
-  top: 0;
-  z-index: -1; */
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .main-home {
-
   display: flex;
   flex-direction: column;
   gap: 100px;

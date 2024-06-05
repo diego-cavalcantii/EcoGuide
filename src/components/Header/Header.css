@@ -1,3 +1,11 @@
+header {
+  background-color: white;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
 nav {
   width: 90%;
   margin: 0 auto;
@@ -7,7 +15,7 @@ nav {
   padding: 1.3rem 0;
 }
 
-li {
+nav > ul > li {
   display: inline;
   margin: 0 10px;
 }
@@ -104,13 +112,18 @@ a {
       justify-content: center;
       align-items: center;
       gap: 30px;
+      
+
+        a {
+          width: 100%;
+          text-align: left;
+          font-size: 1.5rem;
 
 
-      a {
-        width: 100%;
-        text-align: left;
-        font-size: 1.5rem;
-      }
+          li {
+            list-style: none;
+          }
+        }
 
     }
   }
