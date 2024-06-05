@@ -1,97 +1,161 @@
 .container-login {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    flex-grow: 1;
+    height: 100%;
 }
 
 .deep-ocean {
     background-image: url('../../../public/deep-ocean.jpg');
+    background-position:  right;
     background-repeat: no-repeat;
     background-size: cover;
-    max-width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 
     h1 {
         color: white;
-        font-size: 4rem;
-        font-weight: 200;
+        font-size: 4.5rem;
+        font-weight: 700;
         max-width: 600px;
         text-align: center;
-        font-family: "Klee One", cursive;
+        font-family: "Grandstander", cursive;
         line-height: 80px;
+        letter-spacing: 1px;
+        text-transform: capitalize;
 
     }
 }
 
 .container-form-login {
     background-color: white;
-    display: flex;
-    align-items: center;
+    width: 85%;
+    margin: 20% auto 0 auto;
+
 }
 
+.input-login {
+    label {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
+        font-family: "Klee One", cursive;
+        font-weight: 900;
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px solid #333;
+        font-size: .9rem;
+        padding: 5px;
+        margin: 5px 0 20px 0;
+        font-family: "Klee One", cursive;
+        font-weight: 900;
+
+    }
+}
 #form-login {
-    width: 80%;
-    max-width: 80%;
-    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 50px;
+    height: 100%;
+    justify-content: space-between;
 
     h2 {
         font-size: 2rem;
-        font-weight: 900;
+        font-weight: 400;
         color: #333;
+        font-family: "Erica One", sans-serif;
     }
-}
-
-.vh {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
 }
 
 .box-login {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-
 }
 
-.input-login {
+.box-register {
+    display: flex;
+    justify-content: space-between;
 
-    label {
-        font-size: 1.2rem;
-        font-weight: 500;
-        color: #333;
-    }
-
-    input {
-        border: none;
-        border-bottom: 1px solid #333;
-        font-size: .8rem;
-        padding: 10px;
+    div {
+        width: 45%;
     }
 }
+
+
+
 
 .box-buttons {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-bottom: 30px;
 
-    button {
+    button,a {
+        text-decoration: none;
+        text-align: center;
         background-color: white;
         color: #333;
+        font-weight: 900;
         padding: 15px 0;
         border: 1px solid #333;
         border-radius: 50px;
         cursor: pointer;
+        font-size: .9rem;
+        font-family: "Klee One", cursive;
+    }
+}
+
+
+@media(min-width:375px){
+    .container-login {
+        grid-template-columns: auto;
+    }
+    .deep-ocean {
+        background-image: url('../../../public//deep-ocean-1.jpg');
+        height: 100vh;
+        h1 {
+            max-width: 370px;
+        }
+    }
+    .container-form-login {
+        margin: 10% auto 0 auto;
+    }
+}
+
+
+@media(min-width:768px){
+    .deep-ocean {
+        background-image: url('../../../public//deep-ocean-1.jpg');
+        height: 100vh;
+        h1 {
+            max-width: 700px;
+        }
+    }
+    .container-form-login {
+        margin: 10% auto 11% auto;
+    }
+    #form-login {
+        justify-content:center;
+        gap: 50px;
+    }
+}
+
+@media(min-width:1200px){
+    .container-login {
+        grid-template-columns: 2fr 1fr;
+    }
+    .deep-ocean {
+        background-image: url('../../../public/deep-ocean-1.jpg');
+        height: 100vh;
+    }
+    .container-form-login {
+        margin: 20% auto 0 auto;
+    }
+    #form-login {
+        justify-content: space-between;
+        gap: 0;
     }
 
-    span {
-        border: 1px solid #000;
-    }
 }

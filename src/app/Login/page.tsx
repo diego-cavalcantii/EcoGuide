@@ -4,17 +4,20 @@ import { TextField } from '@/components/TextField/TextField'
 import { useState } from 'react';
 import './Login.css'
 import Header from '@/components/Header/Header';
+import Layout from '@/components/Layout/Layout';
+import Link from 'next/link';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  
 
 
-  const handlePage = () => {
+  // const handlePage = () => {
 
-    window.location.href = './Register'; // Redirect to AddCollects page
-  };
+  //   window.location.href = './Register'; 
+  // };
 
   const handleLogin = async () => {
     try {
@@ -35,7 +38,7 @@ export default function Login() {
         console.log(username);
 
 
-        window.location.href = '/'; // Redirect to AddCollects page
+        window.location.href = '/';
       } else {
         setMessage('Invalid credentials');
       }
@@ -45,14 +48,13 @@ export default function Login() {
   };
 
   return (
-    <div className='vh'>
-      <Header variant='bg-transparent text-white' />
-      <main className='container-login'>
-        <section className='deep-ocean'>
+      <Layout>
+      <section className='container-login'>
+        <article className='deep-ocean'>
           <h1>Seu lixo com destino <span style={{ fontWeight: 900, color: 'lightgreen' }}>certo!</span></h1>
-        </section>
-        <section className='container-form-login'>
-          <article id='form-login'>
+        </article>
+        <article className='container-form-login'>
+          <div id='form-login'>
             <h2>Login</h2>
             <div className='box-login'>
               <TextField variant='input-login'
@@ -74,13 +76,14 @@ export default function Login() {
             </div>
             <div className='box-buttons'>
               <button onClick={handleLogin}>Login</button>
-              <span />
-              <button onClick={handlePage}>Cadastre-se</button>
+              <span style={{border:'1px dashed #333', width:'95%', margin:'0 auto'}} />
+              <Link href={'./Register'}>Cadastre-se
+              </Link>
             </div>
             {message && <p>{message}</p>}
-          </article>
-        </section>
-      </main>
-    </div>
+          </div>
+        </article>
+      </section>
+    </Layout>
   );
 }

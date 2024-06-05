@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { waysList } from '@/mocks/waysList';
 import Link from 'next/link';
 import './Header.css';
@@ -17,6 +17,8 @@ export default function Header({ variant }: HeaderProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [token, setToken] = React.useState('');
   const [name, setName] = React.useState('');
+  const [register, setRegister] = useState(false)
+  
 
   useEffect(() => {
     const chave = sessionStorage.getItem('token');
@@ -35,6 +37,10 @@ export default function Header({ variant }: HeaderProps) {
   const toogleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  function handlePage(){
+    setRegister(register)
+  }
 
   return (
     <header className={variant}>
@@ -55,7 +61,7 @@ export default function Header({ variant }: HeaderProps) {
               </div>
             ) : (
               <Link href={'./Login'}>
-                <button className='login'>Login</button>
+                <button onClick={handlePage} className='login'>Login</button>
               </Link>
             )
           }

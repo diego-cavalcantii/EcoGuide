@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { TextField } from '@/components/TextField/TextField';
 import Layout from '@/components/Layout/Layout';
+import '../Login/Login.css'
 
 export default function Register() {
   const [cpf, setCpf] = useState('');
@@ -37,47 +38,59 @@ export default function Register() {
 
   return (
     <Layout>
-
-    <div>
-      <h2>Register</h2>
-      <TextField
-        id='cpf'
-        label='CPF'
-        type="number"
-        value={cpf}
-        onChange={(e) => setCpf(e.target.value)}
-      />
-      <TextField
-        id='name'
-        label='Nome'
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <TextField
-        id='username'
-        label='Username'
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <TextField
-        id='email'
-        label='Email'
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <TextField
-        id='password'
-        label='Password'
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-      {message && <p>{message}</p>}
-    </div>
+      <section className='container-login'>
+        <article className='deep-ocean'>
+          <h1>Seu lixo com destino <span style={{ fontWeight: 900, color: 'lightgreen' }}>certo!</span></h1>
+        </article>
+        <article className='container-form-login'>
+          <div id='form-login'>
+            <h2>Register</h2>
+            <div>
+            <TextField variant='input-login'
+              id='name'
+              label='Nome'
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <div className='box-register'>
+              <TextField variant='input-login'
+                id='cpf'
+                label='CPF'
+                type="number"
+                value={cpf}
+                onChange={(e) => setCpf(e.target.value)}
+              />
+              <TextField variant='input-login'
+                id='username'
+                label='Username'
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <TextField variant='input-login'
+              id='email'
+              label='Email'
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField variant='input-login'
+              id='password'
+              label='Password'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            </div>
+            <div className='box-buttons'>
+              <button onClick={handleRegister}>Cadastre-se</button>
+            </div>
+            {message && <p>{message}</p>}
+          </div>
+        </article>
+      </section>
     </Layout>
   );
 };
