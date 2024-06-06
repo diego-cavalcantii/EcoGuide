@@ -46,7 +46,7 @@ export default function Register() {
           <div id='form-login'>
             <h2>Register</h2>
             <div>
-            <TextField variant='input-login'
+            <TextField variant='input-login register'
               id='name'
               label='Nome'
               type="text"
@@ -54,14 +54,14 @@ export default function Register() {
               onChange={(e) => setName(e.target.value)}
             />
             <div className='box-register'>
-              <TextField variant='input-login'
+              <TextField variant='input-login register'
                 id='cpf'
                 label='CPF'
                 type="number"
                 value={cpf}
                 onChange={(e) => setCpf(e.target.value)}
               />
-              <TextField variant='input-login'
+              <TextField variant='input-login register'
                 id='username'
                 label='Username'
                 type="text"
@@ -69,14 +69,14 @@ export default function Register() {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-            <TextField variant='input-login'
+            <TextField variant='input-login register'
               id='email'
               label='Email'
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <TextField variant='input-login'
+            <TextField variant='input-login register'
               id='password'
               label='Password'
               type="password"

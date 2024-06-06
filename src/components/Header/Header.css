@@ -6,7 +6,6 @@ header {
 
   a {
     text-decoration: none;
-    font-family: "Klee One", cursive;
   }
 }
 
@@ -26,12 +25,10 @@ nav>ul>li {
 
 .logo {
   color: white;
-  font-family: "Klee One", cursive;
+  font-family: var(--main-font);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
-.ways {
-  color: white;
-}
 
 
 .menu-user {
@@ -48,7 +45,7 @@ nav>ul>li {
     font-size: 1rem;
     text-transform: capitalize;
     display: block;
-    font-family: "Klee One", cursive;
+    font-family: var(--main-font);
     font-weight: 900;
     cursor: context-menu;
 
@@ -67,31 +64,18 @@ nav>ul>li {
   background-color: white;
   color: black;
   font-size: .9rem;
+  font-weight: 600;
   display: block;
   cursor: pointer;
   padding: 3px 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+
 }
 
 
 
 
 @media(min-width:375px) {
-
-  /* .bar,
-  .close {
-    background-color: white;
-    border: none;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    cursor: pointer;
-  } */
-
-
-
   .menu-bar {
     background-color: rgba(0, 0, 10, 1);
     z-index: 10;
@@ -105,80 +89,74 @@ nav>ul>li {
     ul {
       display: flex;
       flex-direction: column;
-      width: 60%;
+      width: 70%;
       margin: 0 auto;
       height: 100%;
       justify-content: center;
       align-items: center;
-      gap: 30px;
+    }}
+
+    .list-way {
+      width: 100%;
+      text-align: left;
+      font-size: 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative; /* Adicione esta linha */
+      padding: 20px 0 ;
+    }
+
+    .ways {
+      list-style: none;
+      transition: 0.2s ;
+      font-weight: 600;
+      color: white;
+      width: 50%;
+      transition: 0.5s;
+    }
+
+    .ways:hover {
+      transform: scaleX(1.1);
+    }
 
 
-      a {
-        width: 100%;
-        text-align: left;
-        font-size: 1.5rem;
+    .list-way::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, white 30%, #32CD32 70%); /* Ajuste os pontos de transição */
+       transition: width 0.6s, transform 0.6s; /* Adicione transform  */
+      transform: scaleX(0); /* Adicione scaleX */
+      transform-origin: left; /* Defina a origem da transformação */
+    }
 
+    .list-way:hover::after {
+      width: 100%;
+      transform: scaleX(1); /* Adicione scaleX */
+    }
 
-        li {
-          list-style: none;
-        }
-      }
 
     }
-  }
+  
 
   .menu-bar.open {
     right: 0;
   }
-
-
-  /* .close {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-  } */
-}
 
 @media(min-width:768px) {
   .menu-bar>ul>li {
     font-size: 2rem;
   }
 }
-
 @media(min-width:1200px) {
-
-  .menu-bar {
-    background-color: rgba(0, 0, 10, 1);
-    z-index: 10;
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    right: -200%;
-    top: 0;
-    transition: right 0.8s ease-out;
-
-    ul {
-      display: flex;
-      flex-direction: column;
-      width: 60%;
-      margin: 0 auto;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-
-
-      li {
-        width: 100%;
-        text-align: left;
-        font-size: 1.5rem;
-      }
-    }
+  .menu-bar > ul > a > li {
+    font-size: 2rem;
   }
-
-
-
 }
+
 
 .bar {
   background-color: #fafafa;
@@ -190,8 +168,8 @@ nav>ul>li {
   flex-direction: column;
   border-radius: 5px;
   padding: 5px;
-  z-index: 20;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  box-shadow:   1px 1px 2px rgba(0, 0, 0, 1);
 
 }
 

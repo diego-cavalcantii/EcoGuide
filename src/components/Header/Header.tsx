@@ -73,7 +73,7 @@ export default function Header({ variant }: HeaderProps) {
           <div className={isOpen ? 'menu-bar open' : 'menu-bar'}>
             <ul>
               {ways.map(({ text, link }, index) => (
-                <Link href={link} key={index} onClick={() => setIsOpen(!isOpen)}>
+                <Link className='list-way' href={link} key={index} onClick={() => setIsOpen(!isOpen)}>
                   <li className='ways'>{text}</li>
                 </Link>
               ))}

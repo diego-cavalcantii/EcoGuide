@@ -22,8 +22,6 @@
   justify-content: center;
   gap: 20px;
   background-color: white;
-  height: 360px;
-  width: 280px;
   padding: 0 30px;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -33,26 +31,35 @@
     line-height: 28px;
     font-size: 1.5rem;
     font-weight: 900;
-    width: fit-content;
-    margin: 0 auto;
 
   }
 }
 
+
+
 .input-admin {
   gap: 10px;
+  
 
   input {
     background-color: lightgrey;
     border: none;
     border-radius: 25px;
-    padding: 12px 0 12px 12px;
+    padding: 16px 0 16px 22px;
     color: #343865;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--main-font);
   }
 
   input::placeholder {
     padding-left: 10px;
   }
+
+  input:not(:placeholder-shown) {
+    border: 2px solid black; /* Cor da borda quando o input está preenchido */
+  }
+
 }
 
 .button-login-admin {
@@ -60,12 +67,13 @@
   background: linear-gradient(331deg, rgba(0, 142, 177, 1) 0%, rgba(0, 63, 175, 1) 100%);
   border: none;
   border-radius: 25px;
-  padding: 12px 0;
+  padding: 16px 0;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 3px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 
@@ -97,21 +105,19 @@
   .box-login-admin {
     gap: 33px;
     height: 360px;
-    width: 280px;
+    width: 450px;
 
     h2 {
       color: #343865;
       line-height: 28px;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: 900;
-      width: fit-content;
-      margin: 0 auto;
-
+      margin-left: 10px;
     }
   }
 }
 
-@media(min-width:1400px) {
+/* @media(min-width:1400px) {
   .box-login-admin {
     gap: 50px;
     height: 500px;
@@ -127,4 +133,4 @@
 
     }
   }
-}
+} */

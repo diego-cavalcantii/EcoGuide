@@ -1,6 +1,5 @@
 .bg-blue {
   height: 100vh;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../public/bg-blue.jpg"); */
   background-image: url('../../public/bg-ocean.jpg');
   display: flex;
   flex-direction: column;
@@ -14,8 +13,7 @@
 
 
   h1 {
-    /* font-family: "Grandstander", cursive; */
-    font-family: "Erica One", sans-serif;
+    font-family: "Grandstander", cursive;
     color: white;
     text-align: center;
     /* text-transform: capitalize; */
@@ -31,20 +29,6 @@
   width: 85%;
 }
 
-.container-add-collection {
-  background-color: #f5f5f5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 80px;
-
-  h2 {
-    font-size: 1.8rem;
-    color: #333;
-    text-align: center;
-  }
-}
 
 
 
@@ -63,23 +47,10 @@
     h1 {
       font-size: 2.2rem;
       max-width: 350px;
-      font-weight: 200;
+      font-weight: 700;
       line-height: 50px;
       margin-top: 50px;
     }
-  }
-
-  .container-add-collection {
-    height: 80vh;
-
-    h2 {
-      font-size: 1.3rem;
-      max-width: 300px;
-    }
-  }
-
-  .add-collection {
-    width: 300px;
   }
 }
 
@@ -96,19 +67,6 @@
       line-height: 70px;
       margin-top: 90px
     }
-  }
-
-  .container-add-collection {
-    height: 50vh;
-
-    h2 {
-      font-size: 1.8rem;
-      max-width: 600px;
-    }
-  }
-
-  .add-collection {
-    width: 400px;
   }
 }
 
@@ -128,21 +86,8 @@
       margin-top: 40px;
       font-size: 4.5rem;
       max-width: 800px;
-      font-weight: 200;
+      font-weight: 900;
       line-height: 80px;
     }
-  }
-
-  .container-add-collection {
-    height: 80vh;
-
-    h2 {
-      font-size: 1.8rem;
-      max-width: 600px;
-    }
-  }
-
-  .add-collection {
-    width: 400px;
   }
 }
