@@ -1,0 +1,175 @@
+.container-add-collect {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.recycling {
+  background-image: url('../../../public/deep-ocean.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: white;
+    font-size: 4.5rem;
+    font-weight: 700;
+    max-width: 500px;
+    text-align: center;
+    font-family: "Grandstander", cursive;
+    line-height: 80px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-bottom: 60px;
+
+  }
+}
+
+.container-form-collection {
+  background-color: #fafafa;
+  width: 85%;
+  margin: 15% auto 0 auto;
+}
+
+#form-collect {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 50px;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #333;
+    font-family: "Erica One", sans-serif;
+  }
+}
+
+@media(min-width:375px) {
+  .container-add-collect {
+    grid-template-columns: auto;
+  }
+
+  .recycling {
+    background-image: url('../../../public/deep-ocean.jpg');
+    height: 100vh;
+
+    h1 {
+      max-width: 500px;
+    }
+  }
+}
+
+@media(min-width:768px) {
+  .container-add-collect {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recycling {
+    background-image: url('../../../public/deep-ocean.jpg');
+    height: 100%;
+
+    h1 {
+      max-width: 500px;
+    }
+  }
+
+  .container-form-collection {
+    margin: auto;
+  }
+
+  #form-collect {
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+    gap: 50px;
+    height: auto;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #333;
+      font-family: "Erica One", sans-serif;
+    }
+  }
+}
+
+@media(min-width:1200px) {
+  .container-add-collect {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recycling {
+    background-image: url('../../../public/deep-ocean.jpg');
+    height: 100vh;
+
+    h1 {
+      max-width: 500px;
+    }
+  }
+
+}
+
+
+
+
+
+.box-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-collect {
+  label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    font-family: "Klee One", cursive;
+    font-weight: 900;
+  }
+
+  input {
+    background-color: #fafafa;
+    border: none;
+    border-bottom: 1px solid #333;
+    font-size: 1rem;
+    padding: 2px 0 2px 5px;
+    margin: 5px 0 5px 0;
+    font-family: "Klee One", cursive;
+    font-weight: 900;
+
+  }
+}
+
+.box-button {
+  display: flex;
+  padding-bottom: 30px;
+
+  button {
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    background-color: white;
+    color: #333;
+    font-weight: 900;
+    padding: 15px 0;
+    border: 1px solid #333;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: "Klee One", cursive;
+  }
+}
+
+.caixas-form-add-collect {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    width: 45%;
+  }
+}

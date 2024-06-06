@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { waysList } from '@/mocks/waysList';
 import Link from 'next/link';
 import './Header.css';
@@ -18,7 +18,7 @@ export default function Header({ variant }: HeaderProps) {
   const [token, setToken] = React.useState('');
   const [name, setName] = React.useState('');
   const [register, setRegister] = useState(false)
-  
+
 
   useEffect(() => {
     const chave = sessionStorage.getItem('token');
@@ -38,7 +38,7 @@ export default function Header({ variant }: HeaderProps) {
     setIsOpen(!isOpen);
   };
 
-  function handlePage(){
+  function handlePage() {
     setRegister(register)
   }
 
@@ -52,7 +52,7 @@ export default function Header({ variant }: HeaderProps) {
           {
             token ? (
               <div className='user'>
-                <a>{name}</a>
+                <p>{name}</p>
                 <span className='line-user' />
                 <button className='logout' onClick={() => {
                   sessionStorage.clear();
@@ -60,13 +60,15 @@ export default function Header({ variant }: HeaderProps) {
                 }}>Sair</button>
               </div>
             ) : (
-              <Link href={'./Login'}>
+              <Link href={'/Login'}>
                 <button onClick={handlePage} className='login'>Login</button>
               </Link>
             )
           }
-          <button className='bar' onClick={toogleMenu}>
-            <Image src={Imagens.bars} alt='menu' width={20} height={20} />
+          <button className={`bar ${isOpen ? 'change' : ''}`} onClick={toogleMenu}>
+            <div className="bar1"></div>
+            <div className="bar2"></div>
+            <div className="bar3"></div>
           </button>
           <div className={isOpen ? 'menu-bar open' : 'menu-bar'}>
             <ul>
@@ -75,9 +77,9 @@ export default function Header({ variant }: HeaderProps) {
                   <li className='ways'>{text}</li>
                 </Link>
               ))}
-              <button className='close' onClick={toogleMenu}>
+              {/* <button className='close' onClick={toogleMenu}>
                 <Image src={Imagens.xSolid} alt='close' width={20} height={20} />
-              </button>
+              </button> */}
             </ul>
           </div>
         </div>

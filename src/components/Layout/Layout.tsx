@@ -6,17 +6,19 @@ import './Layout.css'
 
 interface LayoutProps {
   children?: React.ReactNode
+  variant?: string;
 
 
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, variant }: LayoutProps) {
   return (
-    <div className='layout'>
+    <div className={`layout ${variant}`}>
       <Header />
       <main className='layout-main'>
-      {children}
+        {children}
       </main>
+      <Footer />
     </div>
   )
 }

@@ -1,8 +1,9 @@
 'use client'
 import Layout from '@/components/Layout/Layout'
 import React from 'react'
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TextField } from '@/components/TextField/TextField'
+import './AddCollects.css'
 
 export default function AddCollects() {
 
@@ -127,125 +128,125 @@ export default function AddCollects() {
   };
 
   return (
-    <Layout>
-    <div className='form-collection'>
-      <form onSubmit={handleRegister}>
-        <div className='container-input'>
-          <TextField
-            id='name'
-            label='Nome'
-            type='text'
-            onChange={handleName}
-            required
-            minLength={3}
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='type'
-            label='Tipo'
-            type='text'
-            onChange={handleType}
-            required
-            minLength={3}
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='cep'
-            label='CEP'
-            type='text'
-            onChange={handleCep}
-            value={cep}
-            required
-            minLength={8}
-            maxLength={9}
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='logradouro'
-            label='Logradouro'
-            type='text'
-            onChange={handleLogradouro}
-            value={logradouro}
-            required
-            readOnly
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='numero'
-            label='Numero'
-            type='text'
-            onChange={handleNumero}
-            value={numero}
-            required
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='bairro'
-            label='Bairro'
-            type='text'
-            onChange={handleBairro}
-            value={bairro}
-            required
-            readOnly
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='cidade'
-            label='Cidade'
-            type='text'
-            onChange={handleCidade}
-            value={cidade}
-            required
-            readOnly
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='uf'
-            label='UF'
-            type='text'
-            onChange={handleUf}
-            value={uf}
-            required
-            readOnly
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='complemento'
-            label='Complemento'
-            type='text'
-            onChange={handleComplemento}
-            value={complemento}
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='telefone'
-            label='Telefone'
-            type='text'
-            onChange={handleTelefone}
-            value={telefone}
-          />
-        </div>
-        <div className='container-input'>
-          <TextField
-            id='imagemUrl'
-            label='URL da imagem'
-            type='text'
-            onChange={handleImagemUrl}
-            value={imagemUrl}
-          />
-        </div>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+    <Layout variant='relative-points'>
+      <section className='container-add-collect'>
+        <article className='recycling'>
+          <h1>Oceanos limpos</h1>
+        </article>
+        <article className='container-form-collection'>
+          <form onSubmit={handleRegister} id='form-collect'>
+            <h2>Ponto de Coleta</h2>
+            <div className='box-form'>
+              <div className="caixas-form-add-collect">
+                <TextField variant='input-collect'
+                  id='name'
+                  label='Nome'
+                  type='text'
+                  onChange={handleName}
+                  required
+                  minLength={3}
+                />
+                <TextField variant='input-collect'
+                  id='type'
+                  label='Tipo'
+                  type='text'
+                  onChange={handleType}
+                  placeholder='Ex: Coleta de óleo, Coleta de plástico, etc.'
+                  required
+                  minLength={3}
+                />
+              </div>
+              <div className='caixas-form-add-collect'>
+                <TextField variant='input-collect'
+                  id='cep'
+                  label='CEP'
+                  type='text'
+                  onChange={handleCep}
+                  value={cep}
+                  required
+                  minLength={8}
+                  maxLength={9}
+                />
+                <TextField variant='input-collect'
+                  id='numero'
+                  label='Numero'
+                  type='text'
+                  onChange={handleNumero}
+                  value={numero}
+                  required
+                />
+              </div>
+              <TextField variant='input-collect'
+                id='logradouro'
+                label='Logradouro'
+                type='text'
+                onChange={handleLogradouro}
+                value={logradouro}
+                required
+                readOnly
+              />
+              <div className='caixas-form-add-collect'>
+                <TextField variant='input-collect'
+                  id='cidade'
+                  label='Cidade'
+                  type='text'
+                  onChange={handleCidade}
+                  value={cidade}
+                  required
+                  readOnly
+                />
+                <TextField variant='input-collect'
+                  id='uf'
+                  label='UF'
+                  type='text'
+                  onChange={handleUf}
+                  value={uf}
+                  required
+                  readOnly
+                />
+              </div>
+              <div className='caixas-form-add-collect'>
+                <TextField variant='input-collect'
+                  id='bairro'
+                  label='Bairro'
+                  type='text'
+                  onChange={handleBairro}
+                  value={bairro}
+                  required
+                  readOnly
+                />
+                <TextField variant='input-collect'
+                  id='complemento'
+                  label='Complemento'
+                  type='text'
+                  onChange={handleComplemento}
+                  value={complemento}
+                />
+              </div>
+              <div className='caixas-form-add-collect'>
+                <TextField variant='input-collect'
+                  id='telefone'
+                  label='Telefone'
+                  type='text'
+                  onChange={handleTelefone}
+                  value={telefone}
+                />
+                <TextField variant='input-collect'
+                  id='imagemUrl'
+                  label='URL da imagem'
+                  type='text'
+                  placeholder='Ex: https://www.site.com/imagem.jpg'
+                  onChange={handleImagemUrl}
+                  value={imagemUrl}
+                />
+              </div>
+            </div>
+            <div className='box-button'>
+              <button type="submit">Enviar</button>
+            </div>
+          </form>
+        </article>
+      </section>
     </Layout>
 
   )

@@ -17,7 +17,7 @@ export default function Home() {
       <div className="bg-blue" >
         <Header />
         <div className="title-main">
-          <h1>Salve os oceanos reciclando seu lixo</h1>
+          <h1>Salve os <span style={{ color: 'cornflowerblue' }}>oceanos</span> reciclando seu <span style={{ color: '#32CD32' }}>lixo!</span></h1>
         </div>
       </div>
       <main className='main-home'>

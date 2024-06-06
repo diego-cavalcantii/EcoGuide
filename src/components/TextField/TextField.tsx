@@ -3,7 +3,7 @@ import './TextField.css'
 
 interface TextFieldProps {
   id: string;
-  label: string;
+  label?: string;
   type: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;

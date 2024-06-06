@@ -1,5 +1,8 @@
 'use client'
 import React, { useState } from 'react';
+import './LoginAdmin.css'
+import Layout from '@/components/Layout/Layout';
+import { TextField } from '@/components/TextField/TextField';
 
 const Admin = () => {
   const [username, setUsername] = useState('');
@@ -19,34 +22,44 @@ const Admin = () => {
       if (response.ok) {
         const token = await response.text();
         localStorage.setItem('adminToken', token);
-        setMessage('Login successful');
+        alert('Login successful');
         window.location.href = './Dashboard'; // Redirect to Admin Dashboard page
       } else {
-        setMessage('Invalid credentials');
+        alert('Invalid credentials');
       }
     } catch (error) {
-      setMessage('Login failed');
+      alert('Login failed');
     }
   };
 
   return (
-    <div>
-      <h2>Admin Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      {message && <p>{message}</p>}
-    </div>
+    <>
+      <Layout variant='relative-login-admin'>
+        <section className='section-admin'>
+          <article className='box-login-admin'>
+            <h2>Olá Admin, <br />
+              Bem vindo de volta</h2>
+            <div>
+              <TextField variant='input-admin'
+                id='username'
+                type="text"
+                placeholder='Username'
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <TextField variant='input-admin'
+                id='password'
+                type="password"
+                placeholder='Password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button className='button-login-admin' onClick={handleLogin}>Login</button>
+          </article>
+        </section>
+      </Layout>
+    </>
   );
 };
 

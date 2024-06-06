@@ -11,7 +11,7 @@ export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  
+
 
 
   // const handlePage = () => {
@@ -48,10 +48,10 @@ export default function Login() {
   };
 
   return (
-      <Layout>
+    <Layout>
       <section className='container-login'>
         <article className='deep-ocean'>
-          <h1>Seu lixo com destino <span style={{ fontWeight: 900, color: 'lightgreen' }}>certo!</span></h1>
+          <h1>Seu lixo com destino  certo!</h1>
         </article>
         <article className='container-form-login'>
           <div id='form-login'>
@@ -76,7 +76,7 @@ export default function Login() {
             </div>
             <div className='box-buttons'>
               <button onClick={handleLogin}>Login</button>
-              <span style={{border:'1px dashed #333', width:'95%', margin:'0 auto'}} />
+              <span style={{ border: '1px dashed #333', width: '95%', margin: '0 auto' }} />
               <Link href={'./Register'}>Cadastre-se
               </Link>
             </div>

@@ -16,7 +16,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.3rem 0;
+  padding: 16px 0;
 }
 
 nav>ul>li {
@@ -44,10 +44,14 @@ nav>ul>li {
   display: flex;
   gap: 20px;
 
-  a {
-    font-size: .9rem;
+  p {
+    font-size: 1rem;
     text-transform: capitalize;
     display: block;
+    font-family: "Klee One", cursive;
+    font-weight: 900;
+    cursor: context-menu;
+
   }
 }
 
@@ -74,7 +78,7 @@ nav>ul>li {
 
 @media(min-width:375px) {
 
-  .bar,
+  /* .bar,
   .close {
     background-color: white;
     border: none;
@@ -84,11 +88,13 @@ nav>ul>li {
     align-items: center;
     border-radius: 5px;
     cursor: pointer;
-  }
+  } */
+
+
 
   .menu-bar {
     background-color: rgba(0, 0, 10, 1);
-    z-index: 100;
+    z-index: 10;
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -126,11 +132,11 @@ nav>ul>li {
   }
 
 
-  .close {
+  /* .close {
     position: absolute;
     top: 20px;
     left: 20px;
-  }
+  } */
 }
 
 @media(min-width:768px) {
@@ -141,14 +147,9 @@ nav>ul>li {
 
 @media(min-width:1200px) {
 
-  /* .bar,
-  .close {
-    display: none;
-  } */
-
   .menu-bar {
     background-color: rgba(0, 0, 10, 1);
-    z-index: 100;
+    z-index: 10;
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -177,4 +178,40 @@ nav>ul>li {
 
 
 
+}
+
+.bar {
+  background-color: #fafafa;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 5px;
+  z-index: 20;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.bar>div {
+  width: 22px;
+  height: 2px;
+  background-color: #333;
+  margin: 3px 0;
+  position: relative;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: rotate(-48deg) translate(-5px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(48deg) translate(-5px, -6px);
 }

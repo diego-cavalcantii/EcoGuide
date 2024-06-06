@@ -1,0 +1,40 @@
+.collection-point-dashboard {
+  background-color: white;
+  width: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #333;
+  justify-content: start;
+  border-radius: 15px;
+  margin: 50px 0 30px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.adress-collect-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px 25px;
+}
+
+.collection-point-dashboard>img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  object-position: top;
+
+}
+
+.city {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-collect-dashboard {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}

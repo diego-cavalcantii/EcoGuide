@@ -1,0 +1,105 @@
+.relative-dashboard {
+  background-color: #fafafa;
+
+  header {
+    position: relative;
+
+    h1 {
+      color: #333;
+    }
+  }
+}
+
+.menu-admin {
+  display: flex;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 1rem 0;
+
+  button {
+    border: none;
+    background-color: transparent;
+    margin: 0 10px;
+    color: #333;
+    font-family: 'Erica One', sans-serif;
+    font-weight: 200;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  button:hover {
+    color: darkblue;
+  }
+}
+
+.collection-list-dashboard {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.collection-point-dashboard {
+  background-color: white;
+  width: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  border: 1px solid #333;
+  justify-content: start;
+  border-radius: 15px;
+  margin: 50px 0 30px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.collection-point-dashboard>img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.adress-collect-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px 25px;
+}
+
+.city {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-collect-dashboard {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: crimson;
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 8px;
+  border-radius: 0 15px 0 15px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.accept {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  background-color: lightgreen;
+  border-radius: 15px 0 15px 0;
+}
