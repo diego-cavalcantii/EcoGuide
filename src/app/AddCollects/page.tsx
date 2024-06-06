@@ -1,19 +1,11 @@
 'use client'
-import Layout from '@/components/Layout/Layout'
-import React from 'react'
-import { useEffect, useState } from 'react'
-import { TextField } from '@/components/TextField/TextField'
 import './AddCollects.css'
+import { useEffect, useState } from 'react'
+import Layout from '@/components/Layout/Layout'
+import { TextField } from '@/components/TextField/TextField'
+import RequireAuth from '@/utils/RequireAuth'
 
 export default function AddCollects() {
-
-  useEffect(() => {
-    const token = sessionStorage.getItem('token');
-    if (!token) {
-      window.location.href = './Login'; // Redirect to AddCollects page
-    }
-  }, []);
-
   const [name, setName] = useState('');
   const [type, setType] = useState('');
   const [cep, setCep] = useState('');
@@ -27,15 +19,7 @@ export default function AddCollects() {
   const [imagemUrl, setImagemUrl] = useState('');
 
 
-  const handleName = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleType = (event) => {
-    setType(event.target.value);
-  };
-
-  const handleCep = async (event) => {
+  const handleCep = async (event:React.ChangeEvent<HTMLInputElement>) => {
     const cepValue = event.target.value;
     setCep(cepValue);
 
@@ -58,39 +42,11 @@ export default function AddCollects() {
     }
   };
 
-  const handleLogradouro = (event) => {
-    setLogradouro(event.target.value);
-  };
-  const handleNumero = (event) => {
-    setNumero(event.target.value);
-  };
-
-  const handleBairro = (event) => {
-    setBairro(event.target.value);
-  };
-
-  const handleCidade = (event) => {
-    setCidade(event.target.value);
-  };
-  const handleUf = (event) => {
-    setUf(event.target.value);
-  };
-  const handleComplemento = (event) => {
-    setComplemento(event.target.value);
-  };
-  const handleTelefone = (event) => {
-    setTelefone(event.target.value);
-  };
-  const handleImagemUrl = (event) => {
-    setImagemUrl(event.target.value);
-  };
-
-
-  const handleRegister = async (event) => {
+  const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const url = "http://localhost:9090/ponto_coleta"; // Aqui estou consumindo a API que criei
+    const url = "http://localhost:9090/ponto_coleta"; 
 
-    const payload = {
+    const collect = {
       name: name,
       type: type,
       cep: cep,
@@ -110,7 +66,7 @@ export default function AddCollects() {
         headers: {
           "Content-Type": "application/json; charset=UTF-8",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(collect),
       });
 
       if (!response.ok) {
@@ -128,6 +84,7 @@ export default function AddCollects() {
   };
 
   return (
+    <RequireAuth>
     <Layout variant='relative-points'>
       <section className='container-add-collect'>
         <article className='recycling'>
@@ -140,17 +97,17 @@ export default function AddCollects() {
               <div className="caixas-form-add-collect">
                 <TextField variant='input-collect'
                   id='name'
-                  label='Nome'
+                  label='Nome do Ponto de Coleta'
                   type='text'
-                  onChange={handleName}
+                  onChange={(e) => setName(e.target.value)}
                   required
                   minLength={3}
                 />
                 <TextField variant='input-collect'
                   id='type'
-                  label='Tipo'
+                  label='Tipo de Coleta'
                   type='text'
-                  onChange={handleType}
+                  onChange={(e) => setType(e.target.value)}
                   placeholder='Ex: Coleta de óleo, Coleta de plástico, etc.'
                   required
                   minLength={3}
@@ -163,15 +120,15 @@ export default function AddCollects() {
                   type='text'
                   onChange={handleCep}
                   value={cep}
-                  required
                   minLength={8}
                   maxLength={9}
+                  required
                 />
                 <TextField variant='input-collect'
                   id='numero'
                   label='Numero'
                   type='text'
-                  onChange={handleNumero}
+                  onChange={(e) => setNumero(e.target.value)}
                   value={numero}
                   required
                 />
@@ -180,29 +137,29 @@ export default function AddCollects() {
                 id='logradouro'
                 label='Logradouro'
                 type='text'
-                onChange={handleLogradouro}
+                onChange={(e) => setLogradouro(e.target.value)}
                 value={logradouro}
                 required
-                readOnly
+                readonly
               />
               <div className='caixas-form-add-collect'>
                 <TextField variant='input-collect'
                   id='cidade'
                   label='Cidade'
                   type='text'
-                  onChange={handleCidade}
+                  onChange={(e) => setCidade(e.target.value)}
                   value={cidade}
                   required
-                  readOnly
+                  readonly
                 />
                 <TextField variant='input-collect'
                   id='uf'
                   label='UF'
                   type='text'
-                  onChange={handleUf}
+                  onChange={(e) => setUf(e.target.value)}
                   value={uf}
                   required
-                  readOnly
+                  readonly
                 />
               </div>
               <div className='caixas-form-add-collect'>
@@ -210,16 +167,16 @@ export default function AddCollects() {
                   id='bairro'
                   label='Bairro'
                   type='text'
-                  onChange={handleBairro}
+                  onChange={(e) => setBairro(e.target.value)}
                   value={bairro}
                   required
-                  readOnly
+                  readonly
                 />
                 <TextField variant='input-collect'
                   id='complemento'
                   label='Complemento'
                   type='text'
-                  onChange={handleComplemento}
+                  onChange={(e) => setComplemento(e.target.value)}
                   value={complemento}
                 />
               </div>
@@ -228,16 +185,19 @@ export default function AddCollects() {
                   id='telefone'
                   label='Telefone'
                   type='text'
-                  onChange={handleTelefone}
+                  onChange={(e) => setTelefone(e.target.value)}
                   value={telefone}
+                  minLength={11}
+                  maxLength={11}
                 />
                 <TextField variant='input-collect'
                   id='imagemUrl'
                   label='URL da imagem'
                   type='text'
                   placeholder='Ex: https://www.site.com/imagem.jpg'
-                  onChange={handleImagemUrl}
+                  onChange={(e) => setImagemUrl(e.target.value)}
                   value={imagemUrl}
+                  maxLength={255}
                 />
               </div>
             </div>
@@ -248,6 +208,7 @@ export default function AddCollects() {
         </article>
       </section>
     </Layout>
+    </RequireAuth>
 
   )
 };

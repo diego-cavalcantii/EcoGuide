@@ -12,6 +12,7 @@ interface TextFieldProps {
   value?: string;
   placeholder?: string;
   variant?: string;
+  readonly?: boolean;
 }
 
 export const TextField = ({
@@ -24,12 +25,14 @@ export const TextField = ({
   maxLength,
   value,
   placeholder,
-  variant
+  variant,
+  readonly
+  
 }: TextFieldProps) => {
   return (
     <div className={`text-field ${variant}`}>
       <label htmlFor={id}>{label}</label>
-      <input type={type} id={id} onChange={onChange} required={required} minLength={minLength} maxLength={maxLength} value={value} placeholder={placeholder} />
+      <input type={type} id={id} onChange={onChange} required={required} minLength={minLength} maxLength={maxLength} value={value} placeholder={placeholder} readOnly={readonly} />
     </div>
   )
 }

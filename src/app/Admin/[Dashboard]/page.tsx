@@ -1,8 +1,7 @@
 'use client'
-import React, { useState, useEffect } from 'react';
-import Layout from '@/components/Layout/Layout';
 import './Dashboard.css';
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import Layout from '@/components/Layout/Layout';
 import CardCollectAdmin from '@/components/CardCollectAdmin/CardCollectAdmin';
 
 
@@ -10,7 +9,7 @@ const Dashboard = () => {
   const [collectionPoints, setCollectionPoints] = useState([]);
   const [pendingPoints, setPendingPoints] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [points, setPoints] = useState(false);
+  const [pending, setPending] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -30,7 +29,7 @@ const Dashboard = () => {
 
 
   const handlePendents = () => {
-    setPoints(true);
+    setPending(true);
     fetchPendingPoints();
   }
 
@@ -54,7 +53,7 @@ const Dashboard = () => {
   }, [collectionPoints]);
 
   const handlePoints = () => {
-    setPoints(false);
+    setPending(false);
     fetchCollectionPoints();
   }
 
@@ -73,7 +72,7 @@ const Dashboard = () => {
     }
   }
 
-  const handleAccept = async (idColeta) => {
+  const handleAccept = async (idColeta:number) => {
     try {
       const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}/accept`, {
         method: 'PUT',
@@ -81,14 +80,13 @@ const Dashboard = () => {
       if (!response.ok) {
         throw new Error('Failed to accept point.');
       }
-      // Remover o ponto de coleta aceito da lista
       setPendingPoints(pendingPoints.filter(({ idColeta }) => idColeta !== idColeta));
     } catch (error) {
       console.error('Error accepting point:', error);
     }
   };
 
-  const handleReject = async (idColeta) => {
+  const handleReject = async (idColeta:number) => {
     try {
       const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}/reject`, {
         method: 'PUT',
@@ -96,7 +94,6 @@ const Dashboard = () => {
       if (!response.ok) {
         throw new Error('Failed to reject point.');
       }
-      // Remover o ponto de coleta rejeitado da lista
       setPendingPoints(pendingPoints.filter(({ idColeta }) => idColeta !== idColeta));
       handlePendents();
     } catch (error) {
@@ -104,7 +101,7 @@ const Dashboard = () => {
     }
   };
 
-  const handleDelete = async (idColeta) => {
+  const handleDelete = async (idColeta:number) => {
     try {
       const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}`, {
         method: 'DELETE',
@@ -112,7 +109,6 @@ const Dashboard = () => {
       if (!response.ok) {
         throw new Error('Failed to delete point.');
       }
-      // Remover o ponto de coleta deletado da lista
       setCollectionPoints(collectionPoints.filter(({ idColeta }) => idColeta !== idColeta));
     } catch (error) {
       console.error('Error deleting point:', error);
@@ -126,8 +122,8 @@ const Dashboard = () => {
         <button onClick={handlePendents}>Pendentes</button>
       </div>
       {loading ? (
-        <p>Carregando...</p> // Mensagem de carregamento enquanto os pontos de coleta pendentes estão sendo buscados
-      ) : (points ? (
+        <p>Carregando...</p> 
+      ) : (pending ? (
         <div className="collection-list-dashboard">
           {pendingPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
             <CardCollectAdmin
@@ -148,7 +144,9 @@ const Dashboard = () => {
             </CardCollectAdmin>
           ))}
         </div>
-      ) : (
+      ) : ( loading ? (
+        <p>Carregando</p>
+      ) : (        
         <div className="collection-list-dashboard">
           {collectionPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
             <CardCollectAdmin
@@ -168,6 +166,7 @@ const Dashboard = () => {
             </CardCollectAdmin>
           ))}
         </div>
+      )
       )
       )}
     </Layout >

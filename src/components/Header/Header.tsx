@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { waysList } from '@/mocks/waysList';
 import Link from 'next/link';
 import './Header.css';
-import { Imagens } from '../imgs';
-import Image from 'next/image';
 
 
 interface HeaderProps {

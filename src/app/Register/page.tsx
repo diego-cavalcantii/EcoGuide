@@ -1,8 +1,8 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import '../Login/Login.css'
+import React, { use, useState} from 'react';
 import { TextField } from '@/components/TextField/TextField';
 import Layout from '@/components/Layout/Layout';
-import '../Login/Login.css'
 
 export default function Register() {
   const [cpf, setCpf] = useState('');
@@ -15,18 +15,25 @@ export default function Register() {
 
 
   const handleRegister = async () => {
+    const user = {
+      cpf: cpf,
+      name: name,
+      username: username,
+      email: email,
+      password: password
+    }
     try {
       const response = await fetch('http://localhost:9090/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ cpf, name, username, email, password })
+        body: JSON.stringify({ user})
       });
 
       if (response.ok) {
         setMessage('Registration successful');
-        window.location.href = '/Login'; // Redirect to AddCollects page
+        window.location.href = '/Login'; 
         alert('Cadastro efetuado')
       } else {
         setMessage('Username already exists');
@@ -48,10 +55,12 @@ export default function Register() {
             <div>
             <TextField variant='input-login register'
               id='name'
-              label='Nome'
+              label='Nome Completo'
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              minLength={6}
+              required
             />
             <div className='box-register'>
               <TextField variant='input-login register'
@@ -60,6 +69,9 @@ export default function Register() {
                 type="number"
                 value={cpf}
                 onChange={(e) => setCpf(e.target.value)}
+                minLength={11}
+                maxLength={11}
+                required
               />
               <TextField variant='input-login register'
                 id='username'
@@ -67,6 +79,9 @@ export default function Register() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                minLength={4}
+                maxLength={10}
+                required
               />
             </div>
             <TextField variant='input-login register'
@@ -75,6 +90,8 @@ export default function Register() {
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              minLength={13}
+              required
             />
             <TextField variant='input-login register'
               id='password'
@@ -82,6 +99,8 @@ export default function Register() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              minLength={6}
+              required
             />
             </div>
             <div className='box-buttons'>

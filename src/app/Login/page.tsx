@@ -1,23 +1,14 @@
 'use client'
 import React from 'react'
+import './Login.css'
 import { TextField } from '@/components/TextField/TextField'
 import { useState } from 'react';
-import './Login.css'
-import Header from '@/components/Header/Header';
 import Layout from '@/components/Layout/Layout';
 import Link from 'next/link';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-
-
-
-  // const handlePage = () => {
-
-  //   window.location.href = './Register'; 
-  // };
 
   const handleLogin = async () => {
     try {
@@ -33,17 +24,13 @@ export default function Login() {
         const token = await response.text();
         sessionStorage.setItem('token', token);
         sessionStorage.setItem('username', username);
-        setMessage('Login successful');
-        console.log(token);
-        console.log(username);
-
-
+        alert('Login successful');
         window.location.href = '/';
       } else {
-        setMessage('Invalid credentials');
+        alert('Invalid credentials');
       }
     } catch (error) {
-      setMessage('Login failed');
+      alert('Login failed');
     }
   };
 
@@ -80,7 +67,6 @@ export default function Login() {
               <Link href={'./Register'}>Cadastre-se
               </Link>
             </div>
-            {message && <p>{message}</p>}
           </div>
         </article>
       </section>

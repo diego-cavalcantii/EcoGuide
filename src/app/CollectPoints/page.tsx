@@ -1,11 +1,11 @@
 'use client'
+import './CollectPoint.css'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Layout from '@/components/Layout/Layout'
-import React from 'react'
 import RouteAddCollects from '@/components/Button/Button'
 import Title from '@/components/Title/Title'
-import { useState, useEffect } from 'react'
-import './CollectPoint.css'
+import Loading from '@/utils/Loading/Loading'
 
 export default function CollectPoints() {
   const [collectionPoints, setCollectionPoints] = useState([]);
@@ -31,13 +31,13 @@ export default function CollectPoints() {
   }
 
   return (
-    <Layout>
+    <Layout variant='relative-collect'>
       <main className='main-collect-points'>
-        <Title>Pontos de Coleta</Title>
-        <section className='container-collect-points'>
+        <h1>Pontos de Coleta</h1>
           {loading ? (
-            <p>Carregando...</p> // Mensagem de carregamento enquanto os pontos de coleta estão sendo buscados
+            <Loading/> // Mensagem de carregamento enquanto os pontos de coleta estão sendo buscados
           ) : (
+            <section className='container-collect-points'>
             <div className="collection-points-list">
               {collectionPoints.length > 0 ? (
                 collectionPoints.map(({ name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
@@ -66,10 +66,10 @@ export default function CollectPoints() {
                 <p>No collection points available.</p>
               )}
             </div>
-          )}
         </section>
+          )}
         <section className="container-add-collection">
-          <h2>Existe algum ponto de coleta que não esteja aqui ? <br />
+          <h2>Existe algum ponto de coleta que você que não esteja aqui ? <br />
             Adicione no botão abaixo</h2>
           <RouteAddCollects>Adicionar ponto de coleta</RouteAddCollects>
         </section>
