@@ -13,7 +13,7 @@ export default function CollectPoints() {
 
   useEffect(() => {
     fetchCollectionPoints();
-  }, []);
+  }, [collectionPoints]);
 
   const fetchCollectionPoints = async () => {
     try {
@@ -30,44 +30,40 @@ export default function CollectPoints() {
     }
   }
 
+  function IdColeta(params) {
+    window.location.href = `CollectPoints/${params}`
+
+  }
+
   return (
     <Layout variant='relative-collect'>
       <main className='main-collect-points'>
         <h1>Pontos de Coleta</h1>
-          {loading ? (
-            <Loading/> // Mensagem de carregamento enquanto os pontos de coleta estão sendo buscados
-          ) : (
-            <section className='container-collect-points'>
-            <div className="collection-points-list">
-              {collectionPoints.length > 0 ? (
-                collectionPoints.map(({ name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
-                  <div key={name} className="collection-point">
-                    <ul className='adress-collect'>
-                      <li>{`CEP - ${cep}`}</li>
-                      {/* <li>{`${logradouro} - ${numero}`}</li>
-                  <div>
-                  <li>{bairro}</li>
-                  <li>{`${cidade} - ${uf}`}</li>
-                  </div>
-                  <li>{complemento ? complemento : null}</li>
-                  <li>{telefone}</li> */}
-                    </ul>
+        {loading ? (
+          <Loading /> // Mensagem de carregamento enquanto os pontos de coleta estão sendo buscados
+        ) : (
+          <section className="collection-points-list">
+            {collectionPoints.length > 0 ? (
+              collectionPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
+                <div key={idColeta} className="collection-point">
+                  <div className='box-infos-collect'>
                     <div className='name-collect'>
                       <h3>{name}</h3>
-                      <div>
-                        <span>coleta</span> <br />
-                        <p>{type}</p>
-                      </div>
+                      <p>{type}</p>
+                      <p>{`CEP - ${cep}`}</p>
                     </div>
-                    <Image className='img-collect' src={imagemUrl} alt="Collection point" width={380} height={330} />
+                    <div className='more-infos'>
+                      <button onClick={() => IdColeta(idColeta)}>+</button>
+                    </div>
                   </div>
-                ))
-              ) : (
-                <p>No collection points available.</p>
-              )}
-            </div>
-        </section>
-          )}
+                  <Image className='img-collect' src={imagemUrl} alt="Collection point" width={300} height={230} />
+                </div>
+              ))
+            ) : (
+              <p>No collection points available.</p>
+            )}
+          </section>
+        )}
         <section className="container-add-collection">
           <h2>Existe algum ponto de coleta que você que não esteja aqui ? <br />
             Adicione no botão abaixo</h2>

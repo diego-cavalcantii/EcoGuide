@@ -103,3 +103,13 @@
   background-color: lightgreen;
   border-radius: 15px 0 15px 0;
 }
+
+.update {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  background-color: white;
+  border-radius: 15px 0 15px 0;
+  color: #333;
+}

@@ -15,6 +15,8 @@ import bars from '../../public/bars.svg'
 import xSolid from '../../public/x-solid.svg'
 import bgOcean from '../../public/bg-ocean.jpg'
 import deepOcean from '../../public/deep-ocean.jpg'
+import phone from '../../public/phone-solid.svg'
+import location from '../../public/location-dot-solid.svg'
 
 
 export const Imagens = {
@@ -34,5 +36,7 @@ export const Imagens = {
   bars,
   xSolid,
   bgOcean,
-  deepOcean
+  deepOcean,
+  phone,
+  location
 }

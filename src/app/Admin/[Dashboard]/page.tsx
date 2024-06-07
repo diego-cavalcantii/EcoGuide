@@ -3,6 +3,8 @@ import './Dashboard.css';
 import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout/Layout';
 import CardCollectAdmin from '@/components/CardCollectAdmin/CardCollectAdmin';
+import Loading from '@/utils/Loading/Loading';
+import UpdateCollectForm from '@/components/UpdateCollect/UpdateCollect';
 
 
 const Dashboard = () => {
@@ -10,6 +12,7 @@ const Dashboard = () => {
   const [pendingPoints, setPendingPoints] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pending, setPending] = useState(false);
+  const [updateForm, setUpdateForm] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -26,7 +29,6 @@ const Dashboard = () => {
 
 
   }, []);
-
 
   const handlePendents = () => {
     setPending(true);
@@ -72,7 +74,7 @@ const Dashboard = () => {
     }
   }
 
-  const handleAccept = async (idColeta:number) => {
+  const handleAccept = async (idColeta: number) => {
     try {
       const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}/accept`, {
         method: 'PUT',
@@ -86,7 +88,7 @@ const Dashboard = () => {
     }
   };
 
-  const handleReject = async (idColeta:number) => {
+  const handleReject = async (idColeta: number) => {
     try {
       const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}/reject`, {
         method: 'PUT',
@@ -101,7 +103,7 @@ const Dashboard = () => {
     }
   };
 
-  const handleDelete = async (idColeta:number) => {
+  const handleDelete = async (idColeta: number) => {
     try {
       const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}`, {
         method: 'DELETE',
@@ -122,12 +124,11 @@ const Dashboard = () => {
         <button onClick={handlePendents}>Pendentes</button>
       </div>
       {loading ? (
-        <p>Carregando...</p> 
+        <Loading />
       ) : (pending ? (
         <div className="collection-list-dashboard">
           {pendingPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
-            <CardCollectAdmin
-              idColeta={idColeta}
+            <CardCollectAdmin key={idColeta}
               name={name}
               type={type}
               imagemUrl={imagemUrl}
@@ -144,13 +145,12 @@ const Dashboard = () => {
             </CardCollectAdmin>
           ))}
         </div>
-      ) : ( loading ? (
-        <p>Carregando</p>
-      ) : (        
+      ) : (loading ? (
+        <Loading />
+      ) : (
         <div className="collection-list-dashboard">
           {collectionPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
-            <CardCollectAdmin
-              idColeta={idColeta}
+            <CardCollectAdmin key={idColeta}
               name={name}
               type={type}
               imagemUrl={imagemUrl}
