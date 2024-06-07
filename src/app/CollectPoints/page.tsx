@@ -13,7 +13,8 @@ export default function CollectPoints() {
 
   useEffect(() => {
     fetchCollectionPoints();
-  }, [collectionPoints]);
+  }, []);
+
 
   const fetchCollectionPoints = async () => {
     try {
@@ -32,7 +33,6 @@ export default function CollectPoints() {
 
   function IdColeta(params) {
     window.location.href = `CollectPoints/${params}`
-
   }
 
   return (
@@ -40,11 +40,11 @@ export default function CollectPoints() {
       <main className='main-collect-points'>
         <h1>Pontos de Coleta</h1>
         {loading ? (
-          <Loading /> // Mensagem de carregamento enquanto os pontos de coleta estão sendo buscados
+          <Loading />
         ) : (
           <section className="collection-points-list">
             {collectionPoints.length > 0 ? (
-              collectionPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
+              collectionPoints.map(({ idColeta, name, type, imagemUrl, cep }) => (
                 <div key={idColeta} className="collection-point">
                   <div className='box-infos-collect'>
                     <div className='name-collect'>

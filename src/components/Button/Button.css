@@ -2,13 +2,37 @@
   border-radius: 10px;
   border: none;
   height: 60px;
-  background: rgb(0, 142, 177);
-  background: linear-gradient(331deg, rgba(0, 142, 177, 1) 0%, rgba(0, 63, 175, 1) 100%);
+  background: var(--gradient-green1);
+  background: var(--gradient-green2);
   color: white;
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 3px;
   cursor: pointer;
+}
+
+
+.button-main {
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  background: var(--gradient-green1);
+  background: var(--gradient-green2);
+  color: white;
+  font-weight: 900;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 15px 0;
+  border: 1px solid #333;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: .9rem;
+}
+
+.button-main:hover {
+  background: darkgreen;
+  /* transform: scaleX(1.1); */
 }
 
 

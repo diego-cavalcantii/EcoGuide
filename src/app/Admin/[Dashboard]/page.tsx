@@ -1,10 +1,12 @@
 'use client'
 import './Dashboard.css';
+import '../../../components/Header/Header.css';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import Layout from '@/components/Layout/Layout';
 import CardCollectAdmin from '@/components/CardCollectAdmin/CardCollectAdmin';
 import Loading from '@/utils/Loading/Loading';
-import UpdateCollectForm from '@/components/UpdateCollect/UpdateCollect';
+import Footer from '@/components/Footer/Footer';
+import Layout from '@/components/Layout/Layout';
 
 
 const Dashboard = () => {
@@ -118,15 +120,22 @@ const Dashboard = () => {
   };
 
   return (
-    <Layout variant='relative-dashboard'>
-      <div className='menu-admin'>
-        <button onClick={handlePoints}>Pontos de Coleta</button>
-        <button onClick={handlePendents}>Pendentes</button>
-      </div>
+    <div className='relative-dashboard'>
+      <header className='header-admin'>
+        <nav>
+          <Link href={'/'}>
+            <h1 className='logo'>EcoGuide</h1>
+          </Link>
+          <div>
+            <button onClick={handlePoints}>Pontos de Coleta</button>
+            <button onClick={handlePendents}>Pendentes</button>
+          </div>
+        </nav>
+      </header>
       {loading ? (
         <Loading />
       ) : (pending ? (
-        <div className="collection-list-dashboard">
+        <main className="collection-list-dashboard">
           {pendingPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
             <CardCollectAdmin key={idColeta}
               name={name}
@@ -144,11 +153,11 @@ const Dashboard = () => {
               <button onClick={() => handleAccept(idColeta)} className='close accept'>aceitar</button>
             </CardCollectAdmin>
           ))}
-        </div>
+        </main>
       ) : (loading ? (
         <Loading />
       ) : (
-        <div className="collection-list-dashboard">
+        <main className="collection-list-dashboard">
           {collectionPoints.map(({ idColeta, name, type, imagemUrl, cep, logradouro, numero, bairro, cidade, uf, complemento, telefone }) => (
             <CardCollectAdmin key={idColeta}
               name={name}
@@ -165,11 +174,12 @@ const Dashboard = () => {
               <button onClick={() => handleDelete(idColeta)} className='close'>delete</button>
             </CardCollectAdmin>
           ))}
-        </div>
+        </main>
       )
       )
       )}
-    </Layout >
+      <Footer />
+    </div>
   );
 };
 

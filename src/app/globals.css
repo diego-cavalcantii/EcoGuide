@@ -6,7 +6,10 @@
 
 
 :root {
-  --main-font:"Bai Jamjuree", sans-serif;
+  --main-font: "Bai Jamjuree", sans-serif;
+  --gradient-green1: rgb(0, 142, 177);
+  --gradient-green2: linear-gradient(331deg, rgba(0, 142, 85, 1) 0%, rgba(0, 175, 63, 1) 100%);
+
 }
 
 * {
@@ -46,7 +49,7 @@ li {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: dodgerblue;
+  background-color: forestgreen;
 
 }
 

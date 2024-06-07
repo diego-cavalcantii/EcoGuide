@@ -1,6 +1,11 @@
 .relative-detail {
   header {
     position: relative;
+
+    h1 {
+      color: #333;
+      text-shadow: none;
+    }
   }
 }
 
@@ -23,8 +28,9 @@
 
 .grid-detail {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   justify-self: center;
+  gap: 70px;
   height: 70%;
 
   >img {
@@ -33,14 +39,19 @@
 }
 
 .infos-collect {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 50%;
+}
+
+.infos-geral {
   background-color: #fafafa;
   border-radius: 30px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 1);
+  padding: 30px 55px;
   display: flex;
-  flex-direction: column;
-  /* justify-content: space-evenly; */
-  padding: 25px 50px;
-  gap: 40px;
+  justify-content: space-between;
 
 
 }
@@ -64,12 +75,22 @@
 
 .icone-detail {
   display: flex;
-  align-items: center;
+  gap: 20px;
+}
+
+.icone-adress {
+  display: flex;
   gap: 20px;
 }
 
 .adress-detail {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

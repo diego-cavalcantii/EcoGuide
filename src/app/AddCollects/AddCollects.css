@@ -1,3 +1,13 @@
+.relative-points {
+  header {
+    p {
+      color: #333;
+    }
+  }
+}
+
+
+
 .container-add-collect {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -65,12 +75,12 @@
 
 @media(min-width:768px) {
   .container-add-collect {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .recycling {
     background-image: url('../../../public/deep-ocean.jpg');
-    height: 100%;
+    height: 100vh;
 
     h1 {
       max-width: 500px;
@@ -97,6 +107,8 @@
   }
 }
 
+
+
 @media(min-width:1200px) {
   .container-add-collect {
     grid-template-columns: 1fr 1fr;
@@ -104,10 +116,31 @@
 
   .recycling {
     background-image: url('../../../public/deep-ocean.jpg');
-    height: 100vh;
+    height: 100%;
 
     h1 {
       max-width: 500px;
+    }
+  }
+
+  .container-form-collection {
+    background-color: #fafafa;
+    width: 85%;
+    margin: 15% auto 0 auto;
+  }
+
+
+
+
+  #form-collect {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #333;
+      font-family: "Erica One", sans-serif;
     }
   }
 
@@ -120,12 +153,11 @@
 .box-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .input-collect {
   label {
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 500;
     color: #333;
     font-family: "Klee One", cursive;
@@ -148,21 +180,6 @@
 .box-button {
   display: flex;
   padding-bottom: 30px;
-
-  button {
-    width: 100%;
-    text-decoration: none;
-    text-align: center;
-    background-color: white;
-    color: #333;
-    font-weight: 900;
-    padding: 15px 0;
-    border: 1px solid #333;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: .9rem;
-    font-family: "Klee One", cursive;
-  }
 }
 
 .caixas-form-add-collect {

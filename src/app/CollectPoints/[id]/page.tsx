@@ -1,18 +1,24 @@
-'use client'
+'use client';
 import './style.css';
-import Layout from '@/components/Layout/Layout';
+import { Imagens } from '@/components/imgs';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Imagens } from '@/components/imgs';
+import Layout from '@/components/Layout/Layout';
 import Loading from '@/utils/Loading/Loading';
-
 
 export default function Detalhe({ params: { id } }) {
   const [detail, setDetail] = useState([]);
+  const [clima, setClima] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchCollectionPoints();
+  }, [id]);
+
+  useEffect(() => {
+    if (detail.cep) {
+      fetchLatLngAndWeather(detail.cep);
+    }
   }, [detail]);
 
   const fetchCollectionPoints = async () => {
@@ -28,14 +34,33 @@ export default function Detalhe({ params: { id } }) {
       console.error('Error fetching collection points:', error);
       setLoading(false); // Em caso de erro, marca o carregamento como concluído para que a mensagem de erro seja exibida
     }
-  }
-
-  function closeDetail() {
-    window.location.href = '/CollectPoints'
   };
 
+  const fetchLatLngAndWeather = async (cep) => {
+    try {
+      // Fetch latitude and longitude using the CEP
+      const cepResponse = await fetch(`https://cep.awesomeapi.com.br/json/${cep}`);
+      if (!cepResponse.ok) {
+        throw new Error('Failed to fetch location data');
+      }
+      const cepData = await cepResponse.json();
+      const { lat, lng } = cepData;
 
+      // Fetch weather data using the latitude and longitude
+      const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=626134ecb5b009e6383d175d3fc17150&units=metric&lang=pt`);
+      if (!weatherResponse.ok) {
+        throw new Error('Failed to fetch weather data');
+      }
+      const weatherData = await weatherResponse.json();
+      setClima(weatherData);
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
+  };
 
+  function closeDetail() {
+    window.location.href = '/CollectPoints';
+  }
 
   return (
     <Layout variant='relative-detail'>
@@ -49,26 +74,50 @@ export default function Detalhe({ params: { id } }) {
           </div>
           <div className='grid-detail'>
             <Image src={detail.imagemUrl} alt={detail.name} width={400} height={300} />
-            <div className='infos-collect'>
-              <div className='icone-detail'>
-                <Image src={Imagens.madeira} alt={detail.type} width={20} height={20} />
-                <p className='type-collect'>{detail.type}</p>
+            <div className='infos-geral'>
+              <div className='infos-collect'>
+                <div className='icone-detail'>
+                  <Image src={Imagens.madeira} alt={detail.type} width={20} height={20} />
+                  <p className='type-collect'>{detail.type}</p>
+                </div>
+
+
+                <div className='icone-detail'>
+                  <Image src={Imagens.phone} alt='phone' width={20} height={20} />
+                  <p className='type-collect'>{detail.telefone}</p>
+                </div>
+                {clima && (
+                  <div className='weather'>
+                    <h2>Informações do Clima</h2>
+                    <div>
+                      <p>Temperatura:  {clima.main.temp}°C</p>
+                      <p>Descrição:  {clima.weather[0].description}</p>
+                      <p>Umidade:  {clima.main.humidity}%</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className='icone-detail' >
+
+
+
+              <div className='icone-adress'>
                 <Image src={Imagens.location} alt='location' width={20} height={20} />
                 <div className='adress-detail'>
-                  <p>{`CEP - ${detail.cep}`}</p>
                   <p>{`${detail.logradouro}, ${detail.numero}`}</p>
-                  {detail.complemento && <p>{detail.complemento}</p>}
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <p>{`CEP - ${detail.cep}`}</p>
+                    {detail.complemento && <p>{detail.complemento}</p>}
+                  </div>
                   <p>{`${detail.bairro}, ${detail.cidade} - ${detail.uf}`}</p>
                 </div>
               </div>
-              <div className='icone-detail'>
-                <Image src={Imagens.phone} alt='phone' width={20} height={20} />
-                <p className='type-collect'>{detail.telefone}</p>
-              </div>
+
+
+
+
             </div>
           </div>
+
         </section>
       )}
     </Layout>

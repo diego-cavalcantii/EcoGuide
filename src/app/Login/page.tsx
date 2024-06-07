@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import './Login.css'
+import '../../components/Button/Button.css'
 import { TextField } from '@/components/TextField/TextField'
 import { useState } from 'react';
 import Layout from '@/components/Layout/Layout';
@@ -62,9 +63,9 @@ export default function Login() {
               />
             </div>
             <div className='box-buttons'>
-              <button onClick={handleLogin}>Login</button>
+              <button className='button-main' onClick={handleLogin}>Login</button>
               <span style={{ border: '1px dashed #333', width: '95%', margin: '0 auto' }} />
-              <Link href={'./Register'}>Cadastre-se
+              <Link className='button-main' href={'./Register'}>Cadastre-se
               </Link>
             </div>
           </div>

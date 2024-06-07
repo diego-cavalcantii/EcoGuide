@@ -1,37 +1,55 @@
 .relative-dashboard {
-  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 
-  header {
-    position: relative;
+  main {
+    flex-grow: 1;
+  }
+}
 
-    h1 {
-      color: #333;
+.header-admin {
+  position: relative;
+
+  h1 {
+    color: #333;
+    text-shadow: none;
+  }
+
+  nav {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+
+    div {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+
+      button {
+        border: none;
+        background-color: transparent;
+        margin: 0 10px;
+        color: #333;
+        font-family: 'Erica One', sans-serif;
+        font-weight: 200;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      button:hover {
+        color: darkblue;
+      }
     }
   }
 }
 
-.menu-admin {
-  display: flex;
-  justify-content: center;
-  background-color: lightgray;
-  padding: 1rem 0;
 
-  button {
-    border: none;
-    background-color: transparent;
-    margin: 0 10px;
-    color: #333;
-    font-family: 'Erica One', sans-serif;
-    font-weight: 200;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 1rem;
-  }
 
-  button:hover {
-    color: darkblue;
-  }
-}
 
 .collection-list-dashboard {
   width: 80%;
@@ -112,4 +130,44 @@
   background-color: white;
   border-radius: 15px 0 15px 0;
   color: #333;
+}
+
+@media(min-width:375px) {
+  .relative-dashboard {
+    height: 100vh;
+  }
+
+  .header-admin {
+    nav {
+      padding: 2rem 0;
+      align-items: start;
+
+      div {
+        gap: 10px;
+        flex-direction: column;
+        align-items: end;
+      }
+    }
+  }
+}
+
+@media(min-width:768px) {
+  .header-admin {
+    nav {
+      padding: 2rem 0;
+      align-items: center;
+
+      div {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .collection-list-dashboard {
+    align-items: center;
+  }
+
+  .collection-point-dashboard {
+    height: fit-content;
+  }
 }
