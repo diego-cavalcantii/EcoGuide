@@ -6,7 +6,12 @@
       color: #333;
       text-shadow: none;
     }
+
+    p {
+      color: #333;
+    }
   }
+
 }
 
 .section-detail {
