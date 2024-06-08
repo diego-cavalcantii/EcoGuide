@@ -39,7 +39,7 @@ const Dashboard = () => {
 
   const fetchPendingPoints = async () => {
     try {
-      const response = await fetch('http://localhost:9090/ponto_coleta/pending');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta/pending`);
       if (!response.ok) {
         throw new Error('Failed to fetch pending points.');
       }
@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const fetchCollectionPoints = async () => {
     try {
-      const response = await fetch('http://localhost:9090/ponto_coleta');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta`);
       if (!response.ok) {
         throw new Error('Failed to fetch collection points');
       }
@@ -78,7 +78,7 @@ const Dashboard = () => {
 
   const handleAccept = async (idColeta: number) => {
     try {
-      const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}/accept`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta/${idColeta}/accept`, {
         method: 'PUT',
       });
       if (!response.ok) {
@@ -92,7 +92,7 @@ const Dashboard = () => {
 
   const handleReject = async (idColeta: number) => {
     try {
-      const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}/reject`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta/${idColeta}/reject`, {
         method: 'PUT',
       });
       if (!response.ok) {
@@ -107,7 +107,7 @@ const Dashboard = () => {
 
   const handleDelete = async (idColeta: number) => {
     try {
-      const response = await fetch(`http://localhost:9090/ponto_coleta/${idColeta}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta/${idColeta}`, {
         method: 'DELETE',
       });
       if (!response.ok) {

@@ -45,7 +45,7 @@ export default function AddCollects() {
 
   const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const url = "http://localhost:9090/ponto_coleta";
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta`;
 
     const collect = {
       name: name,

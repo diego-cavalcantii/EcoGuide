@@ -18,7 +18,7 @@ export default function CollectPoints() {
 
   const fetchCollectionPoints = async () => {
     try {
-      const response = await fetch('http://localhost:9090/ponto_coleta');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta`);
       if (!response.ok) {
         throw new Error('Failed to fetch collection points');
       }
