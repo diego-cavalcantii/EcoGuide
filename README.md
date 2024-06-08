@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EcoGuide
 
-## Getting Started
+![EcoGuide Logo](link-para-logo.png)
 
-First, run the development server:
+## Descrição
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O **EcoGuide** é um portal dedicado a conscientizar a população sobre o descarte inadequado de resíduos e seu impacto nos oceanos. Nossa missão é educar e fornecer informações valiosas sobre como descartar corretamente o lixo e onde encontrar pontos de coleta adequados.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Guia de Descarte**: Informações detalhadas sobre como descartar diferentes tipos de resíduos de forma correta.
+- **Pontos de Coleta**: Localize pontos de coleta próximos de você.
+- **Cadastro de Pontos de Coleta**: Usuários podem adicionar novos pontos de coleta, que serão revisados por um administrador.
+- **Administração de Pontos de Coleta**: Administradores podem aprovar ou deletar pontos de coleta cadastrados pelos usuários.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Acesso Administrativo
 
-## Learn More
+Para acessar a área administrativa, utilize as seguintes credenciais:
 
-To learn more about Next.js, take a look at the following resources:
+- **URL**: `/Admin/Login`
+- **Usuário**: admin
+- **Senha**: admin123
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tecnologias Utilizadas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Next.js**
+- **React**
+- **TypeScript**
 
-## Deploy on Vercel
+## Instalação
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Para rodar o projeto localmente, siga os passos abaixo:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/seu-usuario/EcoGuide.git
+    ```
+
+2. Navegue até o diretório do projeto:
+    ```bash
+    cd EcoGuide
+    ```
+
+3. Instale as dependências:
+    ```bash
+    npm install
+    ```
+
+4. Rode o projeto:
+    ```bash
+    npm run dev
+    ```
+
+5. Abra o navegador e acesse `http://localhost:3000`.
+
+## Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Contato
+
+Para mais informações, entre em contato através do email: contato@ecoguide.com
+
+---
+
+Obrigado por utilizar o EcoGuide! Juntos podemos fazer a diferença no combate ao descarte inadequado de resíduos nos oceanos.
