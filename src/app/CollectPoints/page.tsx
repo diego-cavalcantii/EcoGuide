@@ -31,8 +31,8 @@ export default function CollectPoints() {
     }
   }
 
-  function IdColeta(params) {
-    window.location.href = `CollectPoints/${params}`
+  function IdColeta(id: number) {
+    window.location.href = `/CollectPoints/${id}`;
   }
 
   return (
@@ -65,7 +65,7 @@ export default function CollectPoints() {
           </section>
         )}
         <section className="container-add-collection">
-          <h2>Existe algum ponto de coleta que você que não esteja aqui ? <br />
+          <h2>Existe algum ponto de coleta perto da sua casa que não esteja aqui ? <br />
             Adicione no botão abaixo</h2>
           <RouteAddCollects>Adicionar ponto de coleta</RouteAddCollects>
         </section>

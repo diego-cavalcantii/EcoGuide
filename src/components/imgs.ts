@@ -17,6 +17,10 @@ import bgOcean from '../../public/bg-ocean.jpg'
 import deepOcean from '../../public/deep-ocean.jpg'
 import phone from '../../public/phone-solid.svg'
 import location from '../../public/location-dot-solid.svg'
+import imgDiego from '../../public/diego.png'
+import imgVitor from '../../public/vitor.png'
+import imgMateus from '../../public/mateus.png'
+import iconeGithub from '../../public//github.svg'
 
 
 export const Imagens = {
@@ -38,5 +42,13 @@ export const Imagens = {
   bgOcean,
   deepOcean,
   phone,
-  location
+  location,
+  iconeGithub
+}
+
+export const Photos = {
+  imgDiego,
+  imgVitor,
+  imgMateus
+
 }

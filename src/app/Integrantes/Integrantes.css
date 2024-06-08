@@ -1,0 +1,79 @@
+.relative-integrantes {
+  header {
+    position: relative;
+
+    h1 {
+      color: #333;
+      text-shadow: none;
+    }
+  }
+}
+
+.integrantes-main {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+}
+
+.container-link-github {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.integrantes-element {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 50px;
+}
+
+.caixa-integrantes-element {
+  div {
+    background-color: #cfcfcf;
+    border-radius: 15px;
+    margin-top: 5%;
+
+    p {
+      padding: 3%;
+      text-align: center;
+    }
+  }
+
+
+}
+
+@media(min-width:375px) {
+  .integrantes-element {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+  }
+
+  .caixa-integrantes-element {}
+
+}
+
+@media(min-width:768px) {
+  .caixa-integrantes-element {
+    width: 33%;
+  }
+
+}
+
+
+@media(min-width:1200px) {
+  .integrantes-element {
+    width: 80%;
+  }
+
+  .caixa-integrantes-element {
+    width: 20%;
+  }
+
+}

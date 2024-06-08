@@ -12,6 +12,7 @@
 }
 
 
+
 .button-main {
   width: 100%;
   text-decoration: none;
@@ -38,7 +39,7 @@
 
 @media(min-width:375px) {
   .button-add-collection {
-    width: 400px;
+    width: 300px;
   }
 }
 

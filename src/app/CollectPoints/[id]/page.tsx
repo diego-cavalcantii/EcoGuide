@@ -6,17 +6,46 @@ import Image from 'next/image';
 import Layout from '@/components/Layout/Layout';
 import Loading from '@/utils/Loading/Loading';
 
-export default function Detalhe({ params: { id } }) {
-  const [detail, setDetail] = useState([]);
-  const [clima, setClima] = useState(null);
+interface DetailProps {
+  params: {
+    id: string;
+  };
+}
+
+interface DetailData {
+  name: string;
+  imagemUrl: string;
+  type: string;
+  telefone: string;
+  logradouro: string;
+  numero: string;
+  complemento?: string;
+  cep: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+}
+
+interface WeatherData {
+  main: {
+    temp: number;
+    humidity: number;
+  };
+  weather: {
+    description: string;
+  }[];
+}
+
+const Detalhe: React.FC<DetailProps> = ({ params: { id } }) => {
+  const [detail, setDetail] = useState<DetailData>(null as any as DetailData);
+  const [clima, setClima] = useState<WeatherData>(null as any as WeatherData);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchCollectionPoints();
   }, [id]);
-
   useEffect(() => {
-    if (detail.cep) {
+    if (detail && detail.cep) {
       fetchLatLngAndWeather(detail.cep);
     }
   }, [detail]);
@@ -36,7 +65,7 @@ export default function Detalhe({ params: { id } }) {
     }
   };
 
-  const fetchLatLngAndWeather = async (cep) => {
+  const fetchLatLngAndWeather = async (cep: string) => {
     try {
       // Fetch latitude and longitude using the CEP
       const cepResponse = await fetch(`https://cep.awesomeapi.com.br/json/${cep}`);
@@ -69,7 +98,7 @@ export default function Detalhe({ params: { id } }) {
       ) : (
         <section className='section-detail'>
           <div className='name-collect'>
-            <h1>{detail.name}</h1>
+            <h1>{detail?.name}</h1>
             <Image onClick={closeDetail} src={Imagens.xSolid} alt='close' width={30} height={30} />
           </div>
           <div className='grid-detail'>
@@ -106,7 +135,7 @@ export default function Detalhe({ params: { id } }) {
                   <p>{`${detail.logradouro}, ${detail.numero}`}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <p>{`CEP - ${detail.cep}`}</p>
-                    {detail.complemento && <p>{detail.complemento}</p>}
+                    {detail?.complemento && <p>{detail.complemento}</p>}
                   </div>
                   <p>{`${detail.bairro}, ${detail.cidade} - ${detail.uf}`}</p>
                 </div>
@@ -123,3 +152,5 @@ export default function Detalhe({ params: { id } }) {
     </Layout>
   );
 }
+
+export default Detalhe;
