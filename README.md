@@ -1,7 +1,5 @@
 # EcoGuide
 
-![EcoGuide Logo](link-para-logo.png)
-
 ## Descrição
 
 O **EcoGuide** é um portal dedicado a conscientizar a população sobre o descarte inadequado de resíduos e seu impacto nos oceanos. Nossa missão é educar e fornecer informações valiosas sobre como descartar corretamente o lixo e onde encontrar pontos de coleta adequados.
