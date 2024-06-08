@@ -13,11 +13,8 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/login`, {
+      const response = await fetch(`https://abb4-2804-14c-181-9b71-315a-e6cd-40bb-4f89.ngrok-free.app/user/login`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
         body: JSON.stringify({ username, password })
       });
 
