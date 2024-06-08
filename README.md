@@ -1,4 +1,5 @@
 # EcoGuide - Link Youtube - https://youtu.be/X3t_KZwCRks 
+Link Vercel - https://eco-guide-cyan.vercel.app/
 
 ## Descrição
 
@@ -51,24 +52,5 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 5. Abra o navegador e acesse `http://localhost:3000`.
 
-## Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Faça push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Contato
-
-Para mais informações, entre em contato através do email: contato@ecoguide.com
-
----
 
 Obrigado por utilizar o EcoGuide! Juntos podemos fazer a diferença no combate ao descarte inadequado de resíduos nos oceanos.
