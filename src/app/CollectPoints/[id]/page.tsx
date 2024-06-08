@@ -1,7 +1,7 @@
 'use client';
 import './style.css';
 import { Imagens } from '@/components/imgs';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Layout from '@/components/Layout/Layout';
 import Loading from '@/utils/Loading/Loading';
@@ -41,16 +41,7 @@ const Detalhe: React.FC<DetailProps> = ({ params: { id } }) => {
   const [clima, setClima] = useState<WeatherData>(null as any as WeatherData);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchCollectionPoints();
-  }, [id]);
-  useEffect(() => {
-    if (detail && detail.cep) {
-      fetchLatLngAndWeather(detail.cep);
-    }
-  }, [detail]);
-
-  const fetchCollectionPoints = async () => {
+  const fetchCollectionPoints = useCallback(async () => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ponto_coleta/${id}`);
       if (!response.ok) {
@@ -63,7 +54,17 @@ const Detalhe: React.FC<DetailProps> = ({ params: { id } }) => {
       console.error('Error fetching collection points:', error);
       setLoading(false); // Em caso de erro, marca o carregamento como concluído para que a mensagem de erro seja exibida
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchCollectionPoints();
+  }, [fetchCollectionPoints]);
+
+  useEffect(() => {
+    if (detail && detail.cep) {
+      fetchLatLngAndWeather(detail.cep);
+    }
+  }, [detail]);
 
   const fetchLatLngAndWeather = async (cep: string) => {
     try {
@@ -102,18 +103,17 @@ const Detalhe: React.FC<DetailProps> = ({ params: { id } }) => {
             <Image onClick={closeDetail} src={Imagens.xSolid} alt='close' width={30} height={30} />
           </div>
           <div className='grid-detail'>
-            <Image src={detail.imagemUrl} alt={detail.name} width={400} height={300} />
+            <Image src={detail?.imagemUrl} alt={detail?.name} width={400} height={300} />
             <div className='infos-geral'>
               <div className='infos-collect'>
                 <div className='icone-detail'>
-                  <Image src={Imagens.madeira} alt={detail.type} width={20} height={20} />
-                  <p className='type-collect'>{detail.type}</p>
+                  <Image src={Imagens.madeira} alt={detail?.type} width={20} height={20} />
+                  <p className='type-collect'>{detail?.type}</p>
                 </div>
-
 
                 <div className='icone-detail'>
                   <Image src={Imagens.phone} alt='phone' width={20} height={20} />
-                  <p className='type-collect'>{detail.telefone}</p>
+                  <p className='type-collect'>{detail?.telefone}</p>
                 </div>
                 {clima && (
                   <div className='weather'>
@@ -127,26 +127,19 @@ const Detalhe: React.FC<DetailProps> = ({ params: { id } }) => {
                 )}
               </div>
 
-
-
               <div className='icone-adress'>
                 <Image src={Imagens.location} alt='location' width={20} height={20} />
                 <div className='adress-detail'>
-                  <p>{`${detail.logradouro}, ${detail.numero}`}</p>
+                  <p>{`${detail?.logradouro}, ${detail?.numero}`}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <p>{`CEP - ${detail.cep}`}</p>
-                    {detail?.complemento && <p>{detail.complemento}</p>}
+                    <p>{`CEP - ${detail?.cep}`}</p>
+                    {detail?.complemento && <p>{detail?.complemento}</p>}
                   </div>
-                  <p>{`${detail.bairro}, ${detail.cidade} - ${detail.uf}`}</p>
+                  <p>{`${detail?.bairro}, ${detail?.cidade} - ${detail?.uf}`}</p>
                 </div>
               </div>
-
-
-
-
             </div>
           </div>
-
         </section>
       )}
     </Layout>
